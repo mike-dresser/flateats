@@ -14,9 +14,11 @@ db = SQLAlchemy(metadata=metadata)
 
 class User(db.Model, SerializerMixin):
     __tablename__='users'
+
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, nullable=False)
     password = db.Column(db.String, nullable=False)
+
     # add relationship
     reviews = db.relationship('Review', back_populates='user')
     # # add serialization rules
@@ -30,11 +32,12 @@ class Restaurant(db.Model, SerializerMixin):
     
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
-    distance = db.Column(db.Integer)
+    distance_time = db.Column(db.Integer)
     price = db.Column(db.Integer)
     cuisine = db.Column(db.String)
     pos_lat = db.Column(db.Float)
     pos_lon = db.Column(db.Float)
+    image = db.Column(db.String)
 
     reviews = db.relationship('Review', back_populates = 'restaurant')
 
