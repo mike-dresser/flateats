@@ -48,3 +48,25 @@ def all_restaurants():
         db.session.commit()
 
         return new_restuarant.to_dict(), 201
+    
+#@app.route('/restaurants/<int:id>', methods=['GET']
+
+#@app.route('/users', methods=['GET'])
+
+#@app.route('/users/<int:id>', methods=['GET', 'PATCH'])
+
+#@app.rout('/reviews, methods=['GET', 'POST', 'PATCH'])
+
+#@app.rout('/reviews/<int:id>, methods=['GET', 'PATCH'])
+
+#### STRETCH GOALS - AUTHENTICATION ####
+#@app.route('/login', methods=['POST'])
+
+#@app.route('/logout', methods=['DELETE'])
+
+#@app.route('/signup', methods=['POST'])
+
+#@app.route('/check_session', methods=['GET'])
+
+#### MAY NOT NEED ####
+#@app.route('/map')
