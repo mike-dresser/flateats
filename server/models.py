@@ -13,23 +13,23 @@ metadata = MetaData(
 db = SQLAlchemy(metadata=metadata)
 
 class User(db.Model, SerializerMixin):
-    __tablename__ = 'users'
-    id = db.Column(db.Integer, primary_key = True)
-    username = db.Column(db.String, nullable = False)
-    password = db.Column(db.String, nullable = False)
+    __tablename__='users'
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String, nullable=False)
+    password = db.Column(db.String, nullable=False)
     # add relationship
-    reviews = db.relationship('Review', back_populates = 'user')
-    # add serialization rules
+    reviews = db.relationship('Review', back_populates='user')
+    # # add serialization rules
     serialize_rules = ['-reviews.user']
 
     def __repr__(self):
         return f'<User {self.id} {self.username}>'
 
-class Restaurant:
-    __tablename__ = 'restaurants'
+class Restaurant(db.Model, SerializerMixin):
+    __tablename__='restaurants'
     
-    id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String, nullable = False)
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
     distance = db.Column(db.Integer)
     price = db.Column(db.Integer)
     cuisine = db.Column(db.String)
@@ -41,7 +41,7 @@ class Restaurant:
     serialize_rules = ['-reviews.restaurant']
 
 class Review(db.Model, SerializerMixin):
-    __tablename__ = 'reviews'
+    __tablename__='reviews'
 
     id = db.Column(db.Integer, primary_key=True)
     rating = db.Column(db.Integer)
@@ -51,7 +51,8 @@ class Review(db.Model, SerializerMixin):
     updated_at = db.Column(db.DateTime, onupdate = db.func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     restaurant_id = db.Column(db.Integer, db.ForeignKey('restaurants.id'))
-    user = db.relationship('User', back_populates = 'reviews')
-    restaurant = db.relationship('Restaurant', back_populates = 'reviews')
+
+    user = db.relationship('User', back_populates='reviews')
+    restaurant = db.relationship('Restaurant', back_populates='reviews')
 
     serialize_rules = ['-user.reviews', '-restaurant.reviews']
