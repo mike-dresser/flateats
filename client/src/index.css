@@ -1,15 +1,1 @@
-body {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  margin: 0;
-  padding: 0;
-}
-
-h1 {
-  font-size: 3.2em;
-}
-
-h1 span {
-  color: lightblue;
-  margin-right: 0.25em;
-}
+/* Moved all CSS to App.css, do we need this file? */
