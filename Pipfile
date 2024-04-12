@@ -10,6 +10,7 @@ sqlalchemy-serializer = "*"
 importlib-resources = "5.10.0"
 Flask-Migrate = "*"
 sqlalchemy = "*"
+flask-cors = "*"
 
 [dev-packages]
 
