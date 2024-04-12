@@ -20,4 +20,12 @@ body {
 #mapContainer {
   height: 60vh;
   width: 50vw;
+  border-radius: 3px;
+  overflow: hidden;
+}
+/* Flatiron School pin logo styling */
+.GMAMP-maps-pin-view {
+  font-size: 2em;
+  font-weight: 900;
+  color: white;
 }
