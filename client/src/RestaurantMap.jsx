@@ -7,7 +7,7 @@ function RestaurantMap() {
   return (
     <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
       <div id="mapContainer">
-        <Map defaultCenter={position} zoom={16}>
+        <Map defaultCenter={position} defaultZoom={16}>
           <Marker position={position} />
         </Map>
       </div>
