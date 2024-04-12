@@ -27,3 +27,7 @@ body {
 #header p {
   font-size: 1.25em;
 }
+
+#mapContainer {
+  height: 50vh;
+}
