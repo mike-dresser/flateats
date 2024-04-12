@@ -44,6 +44,7 @@ def all_restaurants():
             distance_time=json_data.get('distance_time'),
             price=json_data.get('price'),
             cuisine=json_data.get('cuisine'),
+            image=json_data.get('image')
         )
 
         db.session.add(new_restuarant)
@@ -72,11 +73,66 @@ def get_users_users():
 
         return users_dict, 200
 
-#@app.route('/users/<int:id>', methods=['GET'])
+@app.route('/users/<int:id>', methods=['GET'])
+def get_users_by_id(id):
+    user_id = User.query.filter(User.id == id).first()
 
-#@app.rout('/reviews, methods=['GET', 'POST', 'PATCH'])
+    if user_id is None:
+        return {"error": "User not found"}, 404
+    
+    if request.method == 'GET':
+        return user_id.to_dict(), 200
 
-#@app.rout('/reviews/<int:id>, methods=['GET', 'PATCH'])
+
+@app.route('/reviews', methods=['GET', 'POST'])
+def all_reviews():
+    if request.method == 'GET':
+        review_obj = Review.query.all()
+
+        review_dict = []
+        for review in review_obj:
+            review_dict.append(review.to_dict())
+            
+        return review_dict, 200
+    
+    if request.method == 'POST':
+        json_data = request.get_json()
+
+        new_review = Review(
+            rating=json_data.get('rating'),
+            title=json_data.get('title'),
+            body=json_data.get('body'),
+            #user_id & restaurant_id return Null when a new POST occurs
+        )
+
+        db.session.add(new_review)
+        db.session.commit()
+
+        return new_review.to_dict(), 201
+
+@app.route('/reviews/<int:id>', methods=['GET', 'PATCH'])
+def review_by_id(id):
+    review_id = Review.query.filter(Review.id == id).first()
+
+    if review_id is None:
+        return {"error": "Review not found"}, 404
+    
+    if request.method == 'GET':
+        return review_id.to_dict(), 200
+    
+    elif request.method == 'PATCH':
+        json_data = request.get_json()
+
+        for field in json_data:
+            value = json_data[field]
+            setattr(review_id, field, value)
+
+        db.session.add(review_id)
+        db.session.commit()
+
+        return review_id.to_dict(), 200
+
+
 
 #### STRETCH GOALS - AUTHENTICATION ####
 #@app.route('/login', methods=['POST'])
