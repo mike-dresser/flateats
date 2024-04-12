@@ -20,4 +20,6 @@ body {
 #mapContainer {
   height: 50vh;
   width: 50vw;
+  border-radius: 3px;
+  overflow: hidden;
 }
