@@ -11,25 +11,13 @@ body {
   box-sizing: border-box;
 }
 
-#header h1 {
-  font-size: 3.2em;
-  position: relative;
-  margin: 0.25em;
-}
-
-#header span {
-  color: lightblue;
-  position: relative;
-  bottom: 0.15em;
-  right: 0.1em;
-}
-
-#header p {
-  font-size: 1.25em;
+#main {
+  padding: 4em 2em;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 #mapContainer {
   height: 50vh;
   width: 50vw;
-  position: absolute;
 }
