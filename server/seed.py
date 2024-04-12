@@ -138,7 +138,7 @@ with app.app_context():
             title = "Subways are where the rats reside.",
             body = "The title says a lot already. Low quality meats, low quality food, but fantastic workers. I recommend you do NOT use the public bathrooms there, I'm convinced it's a biohazard. If health inspectors saw that bathroom, they would lose their A rating faster than you can say '5 dolla foot long.'",
             user_id = "3",
-            restaurant_id = "1"
+            restaurant_id = "2"
         )
 
         # Review (
