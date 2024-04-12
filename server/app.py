@@ -102,7 +102,8 @@ def all_reviews():
             rating=json_data.get('rating'),
             title=json_data.get('title'),
             body=json_data.get('body'),
-            #user_id & restaurant_id return Null when a new POST occurs
+            user_id=json_data.get('user_id'),
+            restaurant_id=json_data.get('restaurant_id')
         )
 
         db.session.add(new_review)
