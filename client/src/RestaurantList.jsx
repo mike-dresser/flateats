@@ -1,24 +1,17 @@
 import React from 'react';
 import RestaurantCard from './RestaurantCard';
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData } from 'react-router-dom';
 
-
-function RestaurantList({restaurants}) {
-  let allRestaurants = useLoaderData()
-  if (restaurants) { allRestaurants = restaurants }
-  function populateList(restaurants) {
-
-  const result = [];
-  for (let restaurant of restaurants) {
-    result.push(<RestaurantCard restaurant={restaurant} key={restaurant.id} />);
-  }
-  return result
-}
+function RestaurantList() {
+  let allRestaurants = useLoaderData();
 
   return (
     <div>
-      {populateList(allRestaurants)}
-    </div>)
+      {allRestaurants.map((rest) => (
+        <RestaurantCard restaurant={rest} />
+      ))}
+    </div>
+  );
 }
 
 export default RestaurantList;
