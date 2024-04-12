@@ -1,0 +1,17 @@
+#header h1 {
+  font-size: 3.5em;
+  position: relative;
+  margin: 0.15em 0.25em;
+}
+
+#header span {
+  color: lightblue;
+  font-size: 1.1em;
+  font-weight: bold;
+  position: relative;
+  bottom: 0.15em;
+}
+
+#header p {
+  font-size: 1.25em;
+}

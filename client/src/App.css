@@ -1,0 +1,23 @@
+body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0 15px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#main {
+  padding: 4em 2em;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#mapContainer {
+  height: 50vh;
+  width: 50vw;
+}
