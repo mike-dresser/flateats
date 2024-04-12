@@ -72,7 +72,7 @@ def get_users_users():
 
         return users_dict, 200
 
-#@app.route('/users/<int:id>', methods=['GET', 'PATCH'])
+#@app.route('/users/<int:id>', methods=['GET'])
 
 #@app.rout('/reviews, methods=['GET', 'POST', 'PATCH'])
 
