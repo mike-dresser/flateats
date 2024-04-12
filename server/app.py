@@ -39,7 +39,7 @@ def all_restaurants():
 
         new_restuarant = Restaurant(
             name=json_data.get('name'),
-            distance=json_data.get('distance'),
+            distance_time=json_data.get('distance_time'),
             price=json_data.get('price'),
             cuisine=json_data.get('cuisine'),
         )
@@ -49,9 +49,26 @@ def all_restaurants():
 
         return new_restuarant.to_dict(), 201
     
-#@app.route('/restaurants/<int:id>', methods=['GET']
+@app.route('/restaurants/<int:id>', methods=['GET'])
+def restaurants_by_id(id):
+    rest_id = Restaurant.query.filter(Restaurant.id == id).first()
 
-#@app.route('/users', methods=['GET'])
+    if rest_id is None:
+        return {"error": "Restaurant not found"}, 404
+    
+    if request.method == 'GET':
+        return rest_id.to_dict(), 200
+
+@app.route('/users', methods=['GET'])
+def get_users_users():
+    if request.method == 'GET':
+        users_obj = User.query.all()
+
+        users_dict = []
+        for user in users_obj: 
+            users_dict.append(user.to_dict())
+
+        return users_dict, 200
 
 #@app.route('/users/<int:id>', methods=['GET', 'PATCH'])
 
