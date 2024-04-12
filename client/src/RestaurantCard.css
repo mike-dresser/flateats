@@ -1,0 +1,11 @@
+div.card {
+  margin-bottom: 1.2em;
+  padding: 0.5em;
+  border-bottom: 2px solid darkgrey;
+  border-right: 2px solid darkgrey;
+  border-radius: 3px;
+}
+
+div.card h4 {
+  font-weight: 600;
+}
