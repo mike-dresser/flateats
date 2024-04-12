@@ -3,7 +3,7 @@ import os
 
 from models import db, User, Restaurant, Review 
 from flask_migrate import Migrate
-from flask import Flask, request, make_response, session, jsonify
+from flask import Flask, request, session
 from flask_cors import CORS, cross_origin
 
 
@@ -89,3 +89,6 @@ def get_users_users():
 
 #### MAY NOT NEED ####
 #@app.route('/map')
+
+if __name__ == "__main__":
+    app.run(port=5555, debug=True)
