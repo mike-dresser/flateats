@@ -39,7 +39,7 @@ def all_restaurants():
 
         new_restuarant = Restaurant(
             name=json_data.get('name'),
-            distance=json_data.get('distance'),
+            distance_time=json_data.get('distance_time'),
             price=json_data.get('price'),
             cuisine=json_data.get('cuisine'),
         )
