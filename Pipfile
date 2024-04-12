@@ -9,6 +9,7 @@ Flask-SQLAlchemy = "*"
 sqlalchemy-serializer = "*"
 importlib-resources = "5.10.0"
 Flask-Migrate = "*"
+sqlalchemy = "*"
 
 [dev-packages]
 
