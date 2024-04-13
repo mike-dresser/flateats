@@ -7,11 +7,26 @@ import RestaurantList from './RestaurantList';
 function App() {
   const [restaurants, setRestaurants] = useState([]);
 
+  // useEffect(() => {
+  //   fetch("http://127.0.0.1:5555/restaurants")
+  //   .then(r => r.json())
+  //   .then((d) => setRestaurants(d))
+  //   .catch((error) => console.error('Error fetching data:', error));
+  // }, []);
+
   useEffect(() => {
-    fetch("http://127.0.0.1:5555/restaurants")
-    .then(r => r.json())
-    .then((d) => setRestaurants(d))
-    .catch((error) => console.error('Error fetching data:', error));
+    const fetchRestaurants = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:5555/restaurants");
+        const data = await response.json(); 
+        setRestaurants(data);
+      } 
+        catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchRestaurants();
   }, []);
 
   return (
