@@ -21,3 +21,18 @@ body {
   height: 60vh;
   width: 50vw;
 }
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: white;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
