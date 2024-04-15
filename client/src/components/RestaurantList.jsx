@@ -1,5 +1,5 @@
 import React from 'react';
-import RestaurantCard from './RestaurantCard';
+import RestaurantCard from './RestaurantCard/RestaurantCard';
 import { useLoaderData } from 'react-router-dom';
 
 function RestaurantList() {
