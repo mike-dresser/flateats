@@ -47,7 +47,7 @@ function RestaurantPage({restaurantProp}) {
             <p>Distance Time: {restaurantData.distance_time} minutes</p>
             <RestaurantMappedLocation lat={restaurantData.pos_lat} lng={restaurantData.pos_lon} />
             <RestaurantReviews restaurantId={id} />
-            {/* <ReviewForm restaurantId={id} /> */}
+            <ReviewForm restaurantId={id} />
         </div>
     );
 }
