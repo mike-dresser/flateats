@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import RestaurantReviews from './RestaurantReviews';
 import RestaurantMappedLocation from './RestaurantMappedLocation';
+import ReviewForm from './ReviewForm';
 import { useLoaderData, useParams } from "react-router-dom" // load data specific to the current route, and extract to the URL parameter 
 
 function RestaurantPage({restaurantProp}) {
@@ -10,6 +11,7 @@ function RestaurantPage({restaurantProp}) {
     const [restaurantData, setRestaurantData] = useState(null); // stores the data and tracks the state of restaurant's data we fetch from API
     const [isLoading, setIsLoading] = useState(true); // placed to keep track of whether the data is being fetched
     const { id } = useParams(); // we get the id from the URL parameters using this hook, and we capture the dynamic part of the URL that identifies a specific restaurant
+
 
     useEffect(() => { // hook runs when the id value changes
         const fetchRestaurant = async () => { // define async function and call within the effect, fetch the data based on id, parse the JSON response, update the restaurantData state.
@@ -26,7 +28,8 @@ function RestaurantPage({restaurantProp}) {
         };
 
         fetchRestaurant();
-    }, [id]);
+    }, []);
+    // NEED TO RESET PAGE UPON FORM SUBMISSION TO SHOW THE NEW REVIEW
 
     // conditional rendering statements: before rendering the full component, check if data is still loading, and if no data is found, display a "restaurant not found" message
     if (isLoading) {
@@ -46,6 +49,7 @@ function RestaurantPage({restaurantProp}) {
             <p>Distance Time: {restaurantData.distance_time} minutes</p>
             <RestaurantMappedLocation lat={restaurantData.pos_lat} lng={restaurantData.pos_lon} />
             <RestaurantReviews restaurantId={id} />
+            <ReviewForm restaurantId={id} />
         </div>
     );
 }

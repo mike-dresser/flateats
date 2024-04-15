@@ -129,6 +129,7 @@ def review_user_id(id):
     return [review.to_dict() for review in user_reviews], 200
 
 #### STRETCH GOALS - AUTHENTICATION ####
+
 @app.route('/login', methods=['POST'])
 def login():
     json = request.get_json()
@@ -146,6 +147,7 @@ def logout():
     session['user_id'] = None
     session['username'] = None
     return {'message':'Goodbye'}, 200
+
 
 #@app.route('/signup', methods=['POST'])
 
