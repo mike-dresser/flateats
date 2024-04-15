@@ -1,0 +1,28 @@
+#top {
+    /* display: flex; */
+    justify-content: space-evenly;
+    gap: 40px;
+}
+
+#restaurantMain {
+    max-width: 800px;
+    margin: auto;
+}
+
+#restaurantDetails {
+    border: 1px solid black;
+}
+
+#restaurantDetails img {
+    max-height: 400px;
+}
+
+/* #mapContainer {
+    width: 400px;
+} */
+
+#restaurantMapContainer {
+    border: 1px solid hotpink;
+    width: 300px;
+    
+}
