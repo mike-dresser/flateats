@@ -15,16 +15,9 @@ function RestaurantReviews({ restaurantId }) {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                // DATA VALIDATION PART!!!! V IMPORTANT
-                let reviewsData = await response.json();
 
-                // map over reviewsData to create a new array detailedReviews, that will take the 'review' object from the 'reviewData' array and then spread its properties into a new object. Then, add the username property into the new object as well as the restaurantName property. These were previously nested in the object, but turned into properties in the new array.
-                const detailedReviews = reviewsData.map(review => ({
-                    ...review,
-                    username: review.user.username,
-                    restaurantName: review.restaurant.name
-                }));
-                setReviews(detailedReviews);
+                let reviewsData = await response.json();
+                setReviews(reviewsData);
             } catch (err) {
                 console.error("Failed to fetch reviews:", err);
                 setError('Failed to load data: ' + err.message);
@@ -50,7 +43,7 @@ function RestaurantReviews({ restaurantId }) {
                     <h4>{review.title}</h4>
                     <p>{review.body}</p>
                     <p>Rating: {review.rating}</p>
-                    <p>User: {review.username}</p>
+                    <p>User: {review.user.username}</p>
                 </div>
             ))}
         </div>
