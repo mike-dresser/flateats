@@ -1,28 +1,76 @@
 #top {
     /* display: flex; */
-    justify-content: space-evenly;
-    gap: 40px;
+    justify-content: center;
+    padding: 20px;
 }
 
 #restaurantMain {
-    max-width: 800px;
-    margin: auto;
+    display: flex;
+    gap: 40px;
+    width: 60%; 
+    margin: auto; 
 }
 
 #restaurantDetails {
-    border: 1px solid black;
+    flex: 1; 
+    /* border: 1px solid black; */
+    /* padding: 20px; */
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 #restaurantDetails img {
-    max-height: 400px;
+    width: 100%; 
+    height: auto;
+    max-height: 650px;
+    object-fit: cover; 
 }
-
-/* #mapContainer {
-    width: 400px;
-} */
 
 #restaurantMapContainer {
-    border: 1px solid hotpink;
-    width: 300px;
-    
+    flex: 1; 
+    /* border: 1px solid black; */
+    /* padding: 10px; */
+    width: 400px;
+    border-radius: 8px;
+    overflow: hidden;
 }
+
+#restaurantMapContainer > div {
+    width: 100%;
+    height: 100%;
+}
+
+#restaurantReviews {
+    width: 60%; 
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9; /* throw in some light backgrounds to distinguish reviews from rest of components */
+    border-radius: 8px; /* rounded corners */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* some shadows for depth */
+}
+
+/* Styling for individual review entries */
+.reviewEntry {
+    padding: 15px;
+    border-bottom: 1px solid #ccc; 
+    margin-bottom: 10px; 
+}
+
+.reviewEntry:last-child {
+    border-bottom: none;
+}
+
+.reviewText {
+    font-size: 1.1rem; 
+    line-height: 1.5; 
+    color: #090909; 
+}
+
+.reviewerName {
+    font-weight: bold;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 15px; 
+}
+
+

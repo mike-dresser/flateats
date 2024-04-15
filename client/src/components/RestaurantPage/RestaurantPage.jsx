@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './RestaurantPage.css';
 import Header from '../Header/Header';
 import RestaurantReviews from '../RestaurantReviews';
 import RestaurantMap from '../RestaurantMap';
@@ -47,21 +48,31 @@ function RestaurantPage({ restaurantProp }) {
   }
 
   return (
-    <div>
+    <div >
       <Header />
-      <h1>{restaurantData.name}</h1>
-      <img src={restaurantData.image} alt={restaurantData.name} />
-      <p>Cuisine: {restaurantData.cuisine}</p>
-      <p>Price Level: {'$'.repeat(restaurantData.price)}</p>
-      <p>Distance Time: {restaurantData.distance_time} minutes</p>
-      <RestaurantMap
-        restaurantCoords={{
-          lat: restaurantData.pos_lat,
-          lng: restaurantData.pos_lon,
-        }}
-      />
-      <RestaurantReviews restaurantId={id} />
-      <ReviewForm restaurantId={id} />
+      <div id='top' >
+        <div id='restaurantMain'>
+          <div id='restaurantDetails'>
+            <img src={restaurantData.image} alt={restaurantData.name} />
+            <h1>{restaurantData.name}</h1>
+            <p>Cuisine: {restaurantData.cuisine}</p>
+            <p>Price Level: {'$'.repeat(restaurantData.price)}</p>
+            <p>Distance Time: {restaurantData.distance_time} minutes</p>
+          </div>
+          <div id="restaurantMapContainer">
+            <RestaurantMap
+              restaurantCoords={{
+                lat: restaurantData.pos_lat,
+                lng: restaurantData.pos_lon,
+              }}
+            />
+          </div>
+        </div>
+      <div id='restaurantReviews'>
+        <RestaurantReviews restaurantId={id} />
+      </div>
+        <ReviewForm restaurantId={id} />
+      </div>
     </div>
   );
 }
