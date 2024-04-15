@@ -1,28 +1,32 @@
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import MetaData
-from sqlalchemy.orm import validates
 from sqlalchemy_serializer import SerializerMixin
+from sqlalchemy.ext.hybrid import hybrid_property
+from config import db, bcrypt
 
 
-metadata = MetaData(
-    naming_convention={
-        "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
-    }
-)
-
-db = SQLAlchemy(metadata=metadata)
 
 class User(db.Model, SerializerMixin):
     __tablename__='users'
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, nullable=False)
-    password = db.Column(db.String, nullable=False)
+    _password = db.Column(db.String, nullable=False)
 
     # add relationship
     reviews = db.relationship('Review', back_populates='user')
     # # add serialization rules
     serialize_rules = ['-reviews.user']
+
+    @hybrid_property
+    def password(self):
+        return self._password
+    
+    @password.setter
+    def password(self, new_password):
+        hashed = bcrypt.generate_password_hash(new_password.encode('utf-8'))
+        self._password = hashed.decode('utf-8')
+
+    def authenticate(self, candidate_password):
+        return bcrypt.check_password_hash(self._password, candidate_password)
 
     def __repr__(self):
         return f'<User {self.id} {self.username}>'
