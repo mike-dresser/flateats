@@ -12,6 +12,7 @@ function RestaurantPage({restaurantProp}) {
     const [isLoading, setIsLoading] = useState(true); // placed to keep track of whether the data is being fetched
     const { id } = useParams(); // we get the id from the URL parameters using this hook, and we capture the dynamic part of the URL that identifies a specific restaurant
 
+
     useEffect(() => { // hook runs when the id value changes
         const fetchRestaurant = async () => { // define async function and call within the effect, fetch the data based on id, parse the JSON response, update the restaurantData state.
             setIsLoading(true);
@@ -27,7 +28,8 @@ function RestaurantPage({restaurantProp}) {
         };
 
         fetchRestaurant();
-    }, [id]);
+    }, []);
+    // NEED TO RESET PAGE UPON FORM SUBMISSION TO SHOW THE NEW REVIEW
 
     // conditional rendering statements: before rendering the full component, check if data is still loading, and if no data is found, display a "restaurant not found" message
     if (isLoading) {
