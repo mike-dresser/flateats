@@ -19,10 +19,12 @@ function ReviewForm({ restaurantId }) {
         const newReview = {
             title: reviewTitle,
             body: reviewBody,
-            rating: parseInt(reviewRating, 10)
+            rating: parseInt(reviewRating),
+            restaurant_id: restaurantId,
+            user_id: 1 //this will need to be changed
         };
 
-        fetch(`http://127.0.0.1:5555/reviews/restaurant/${restaurantId}`, {
+        fetch(`http://127.0.0.1:5555/reviews`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -32,6 +34,7 @@ function ReviewForm({ restaurantId }) {
         .then((response) => response.json())
         .then((data) => {
             console.log(data);
+            restaurantId;
             setReviewTitle("");
             setReviewBody("");
             setReviewRating(0);
