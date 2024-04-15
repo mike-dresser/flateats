@@ -148,7 +148,7 @@ def review_user_id(id):
 #### STRETCH GOALS - AUTHENTICATION ####
 #@app.route('/login', methods=['POST'])
 
-#@app.route('/logout', methods=['DELETE'])
+#@app.route('/logout', methods=['DELETE'])  
 
 #@app.route('/signup', methods=['POST'])
 

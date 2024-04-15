@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReviewForm from './ReviewForm';
 
 function RestaurantReviews({ restaurantId }) {
     const [reviews, setReviews] = useState([]);
@@ -46,6 +47,7 @@ function RestaurantReviews({ restaurantId }) {
                     <p>User: {review.user.username}</p>
                 </div>
             ))}
+            {/* <ReviewForm restaurantId={id} /> */}
         </div>
     );
 }
