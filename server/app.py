@@ -1,24 +1,7 @@
 #!/usr/bin/env python3
-import os
-
-from models import db, User, Restaurant, Review 
-from flask_migrate import Migrate
-from flask import Flask, request, session
-from flask_cors import CORS, cross_origin
-
-
-app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database.db'
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-cors = CORS(app, resources={r"/": {"origins": "*"}})
-app.config['CORS_HEADERS'] = 'Content-Type'
-app.json.compact = False
-
-migrate = Migrate(app, db)
-
-db.init_app(app)
-
-CORS(app, supports_credentials=True)
+from models import User, Restaurant, Review 
+from flask import request, session
+from config import app, db
 
 @app.route('/')
 def root():
@@ -146,9 +129,24 @@ def review_user_id(id):
     return [review.to_dict() for review in user_reviews], 200
 
 #### STRETCH GOALS - AUTHENTICATION ####
-#@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST'])
+def login():
+    json = request.get_json()
+    user = User.query.filter(User.username == json.get('username')).first()
+    if not user or not user.authenticate(json.get('password')):
+        return {'error': 'Invalid username or password'}
+    session['user_id'] = user.id
+    session['username'] = user.username
+    return user.to_dict(rules=('-reviews', '-_password'))
 
-#@app.route('/logout', methods=['DELETE'])  
+
+@app.route('/logout', methods=['DELETE'])
+def logout():
+    if not session.get('user_id'):
+        return {'error': 'Not logged in'}, 401
+    session['user_id'] = None
+    session['username'] = None
+    return {'message':'Goodbye'}, 200
 
 #@app.route('/signup', methods=['POST'])
 
