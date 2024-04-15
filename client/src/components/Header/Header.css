@@ -1,3 +1,13 @@
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#header form {
+  display: flex;
+  flex-direction: column;
+}
 #header h1 {
   font-size: 3.5em;
   position: relative;

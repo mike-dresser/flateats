@@ -3,6 +3,7 @@ import './App.css';
 import Header from '../Header/Header';
 import RestaurantMap from '../RestaurantMap';
 import RestaurantList from '../RestaurantList';
+import Login from '../Login';
 
 function App() {
   const [restaurants, setRestaurants] = useState([]);
@@ -32,7 +33,6 @@ function App() {
     <>
       <Header />
       <div id="main">
-        {/* <RestaurantList restaurants={restaurants}/> */}
         <RestaurantList />
         <RestaurantMap />
       </div>
