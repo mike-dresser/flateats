@@ -6,10 +6,12 @@ import {
 } from "react-router-dom";
 import App from './App.jsx';
 import RestaurantList from './RestaurantList';
+import RestaurantPage from './RestaurantPage';
 
 import {
-  restaurantListLoader
-} from './loaders.js'
+  restaurantListLoader,
+  restaurantLoader
+} from './loaders.js';
 
 
 const router = createBrowserRouter([
@@ -21,7 +23,12 @@ const router = createBrowserRouter([
     path:"/restaurants",
     element: <RestaurantList />,
     loader: restaurantListLoader
-  }
+  },
+  {
+    path: '/restaurants/:id',
+    element: <RestaurantPage />,
+    loader: restaurantLoader
+  },
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
