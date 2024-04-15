@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import Header from './Header';
 import RestaurantReviews from './RestaurantReviews';
-import RestaurantMappedLocation from './RestaurantMappedLocation';
+import RestaurantMap from './RestaurantMap';
 import { useLoaderData, useParams } from "react-router-dom" // load data specific to the current route, and extract to the URL parameter 
 
 function RestaurantPage({restaurantProp}) {
@@ -39,12 +40,13 @@ function RestaurantPage({restaurantProp}) {
 
     return (
         <div>
+            <Header />
             <h1>{restaurantData.name}</h1>
             <img src={restaurantData.image} alt={restaurantData.name} />
             <p>Cuisine: {restaurantData.cuisine}</p>
             <p>Price Level: {'$'.repeat(restaurantData.price)}</p>
             <p>Distance Time: {restaurantData.distance_time} minutes</p>
-            <RestaurantMappedLocation lat={restaurantData.pos_lat} lng={restaurantData.pos_lon} />
+            <RestaurantMap restaurantCoords={{lat: restaurantData.pos_lat, lng: restaurantData.pos_lon}}  />
             <RestaurantReviews restaurantId={id} />
         </div>
     );
