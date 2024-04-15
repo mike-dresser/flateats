@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RestaurantReviews from './RestaurantReviews';
+import RestaurantMappedLocation from './RestaurantMappedLocation';
 import { useLoaderData, useParams } from "react-router-dom" // load data specific to the current route, and extract to the URL parameter 
 
 function RestaurantPage({restaurantProp}) {
@@ -43,6 +44,7 @@ function RestaurantPage({restaurantProp}) {
             <p>Cuisine: {restaurantData.cuisine}</p>
             <p>Price Level: {'$'.repeat(restaurantData.price)}</p>
             <p>Distance Time: {restaurantData.distance_time} minutes</p>
+            <RestaurantMappedLocation lat={restaurantData.pos_lat} lng={restaurantData.pos_lon} />
             <RestaurantReviews restaurantId={id} />
         </div>
     );
