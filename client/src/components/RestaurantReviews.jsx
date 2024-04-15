@@ -40,14 +40,14 @@ function RestaurantReviews({ restaurantId }) {
   if (reviews.length === 0) return <p>No reviews yet.</p>;
 
   return (
-    <div>
+    <div id='restaurantReviews'>
       <h2>Reviews</h2>
       {reviews.map((review) => (
-        <div key={review.id}>
-          <h4>{review.title}</h4>
-          <p>{review.body}</p>
-          <p>Rating: {review.rating}</p>
-          <p>User: {review.user.username}</p>
+        <div key={review.id} className='reviewEntry'>
+          <h3>{review.title}</h3>
+          <div className="reviewText">{review.body}</div>
+          <div className="reviewText">Rating: {review.rating}</div>
+          <div className="reviewerName">{review.user.username}</div>
         </div>
       ))}
       {/* <ReviewForm restaurantId={id} /> */}
