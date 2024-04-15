@@ -129,9 +129,23 @@ def review_user_id(id):
     return [review.to_dict() for review in user_reviews], 200
 
 #### STRETCH GOALS - AUTHENTICATION ####
-#@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST'])
+def login():
+    json = request.get_json()
+    user = User.query.filter(User.username == json.get('username')).first()
+    if not user or not user.authenticate(json.get('password')):
+        return {'error': 'Invalid username or password'}
+    session['user_id'] = user.id
+    session['username'] = user.username
+    return user.to_dict(rules=('-reviews', '-_password'))
 
-#@app.route('/logout', methods=['DELETE'])
+@app.route('/logout', methods=['DELETE'])
+def logout():
+    if not session.get('user_id'):
+        return {'error': 'Not logged in'}, 401
+    session['user_id'] = None
+    session['username'] = None
+    return {'message':'Goodbye'}, 200
 
 #@app.route('/signup', methods=['POST'])
 
