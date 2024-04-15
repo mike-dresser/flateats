@@ -17,14 +17,7 @@ function RestaurantReviews({ restaurantId }) {
                 }
                 // DATA VALIDATION PART!!!! V IMPORTANT
                 let reviewsData = await response.json();
-                if (!Array.isArray(reviewsData)) {
-                    reviewsData = [reviewsData]; // if it's not an array, wrap it in an array
-                }
-                console.log("Received data:", reviewsData); 
 
-                if (!Array.isArray(reviewsData)) {
-                    throw new Error("Data format error: Expected an array of reviews.");
-                }
                 // map over reviewsData to create a new array detailedReviews, that will take the 'review' object from the 'reviewData' array and then spread its properties into a new object. Then, add the username property into the new object as well as the restaurantName property. These were previously nested in the object, but turned into properties in the new array.
                 const detailedReviews = reviewsData.map(review => ({
                     ...review,
