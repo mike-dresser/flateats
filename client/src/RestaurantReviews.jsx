@@ -58,7 +58,6 @@ function RestaurantReviews({ restaurantId }) {
                     <p>{review.body}</p>
                     <p>Rating: {review.rating}</p>
                     <p>User: {review.username}</p>
-                    <p>Restaurant: {review.restaurantName}</p>
                 </div>
             ))}
         </div>
