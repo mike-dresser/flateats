@@ -133,12 +133,23 @@ def review_by_id(id):
 
         return review_id.to_dict(), 200
 
+@app.route('/reviews/restaurant/<int:id>', methods=['GET'])
+def review_restaurant_id(id):
+    restaurant_reviews = Review.query.filter(Review.restaurant_id == id).all()
+
+    return [review.to_dict() for review in restaurant_reviews], 200
+
+@app.route('/reviews/user/<int:id>', methods=['GET'])
+def review_user_id(id):
+    user_reviews = Review.query.filter(Review.user_id == id).all()
+
+    return [review.to_dict() for review in user_reviews], 200
 
 
 #### STRETCH GOALS - AUTHENTICATION ####
 #@app.route('/login', methods=['POST'])
 
-#@app.route('/logout', methods=['DELETE'])
+#@app.route('/logout', methods=['DELETE'])  
 
 #@app.route('/signup', methods=['POST'])
 
