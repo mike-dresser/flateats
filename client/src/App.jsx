@@ -29,11 +29,13 @@ function App() {
     fetchRestaurants();
   }, []);
 
+
   return (
     <>
       <Header />
       <div id="main">
-        <RestaurantList restaurants={restaurants}/>
+        {/* <RestaurantList restaurants={restaurants}/> */}
+        <RestaurantList />
         <RestaurantMap />
       </div>
     </>
