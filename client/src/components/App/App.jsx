@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import Header from './Header';
-import RestaurantMap from './RestaurantMap';
-import RestaurantList from './RestaurantList';
+import Header from '../Header/Header';
+import RestaurantMap from '../RestaurantMap';
+import RestaurantList from '../RestaurantList';
 
 function App() {
   const [restaurants, setRestaurants] = useState([]);
@@ -17,18 +17,16 @@ function App() {
   useEffect(() => {
     const fetchRestaurants = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5555/restaurants");
-        const data = await response.json(); 
+        const response = await fetch('http://127.0.0.1:5555/restaurants');
+        const data = await response.json();
         setRestaurants(data);
-      } 
-        catch (error) {
+      } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
     fetchRestaurants();
   }, []);
-
 
   return (
     <>

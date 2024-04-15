@@ -1,16 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import App from './App.jsx';
-import RestaurantList from './RestaurantList';
-import RestaurantPage from './RestaurantPage';
+import App from './components/App';
+import RestaurantList from './components/RestaurantList';
+import RestaurantPage from './components/RestaurantPage';
 
-import {
-  restaurantListLoader,
-  restaurantLoader
-} from './loaders.js';
-
-
+import { restaurantListLoader, restaurantLoader } from './loaders.js';
 
 const router = createBrowserRouter([
   {
@@ -22,15 +17,14 @@ const router = createBrowserRouter([
     path: '/restaurants',
     element: <RestaurantList />,
 
-    loader: restaurantListLoader
+    loader: restaurantListLoader,
   },
   {
     path: '/restaurants/:id',
     element: <RestaurantPage />,
-    loader: restaurantLoader
+    loader: restaurantLoader,
   },
-])
-
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
