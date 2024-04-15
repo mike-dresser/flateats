@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 import RestaurantReviews from '../RestaurantReviews';
 import RestaurantMap from '../RestaurantMap';
 import ReviewForm from '../ReviewForm';
+import './RestaurantPage.css';
 import { useLoaderData, useParams } from 'react-router-dom'; // load data specific to the current route, and extract to the URL parameter
 
 function RestaurantPage({ restaurantProp }) {
