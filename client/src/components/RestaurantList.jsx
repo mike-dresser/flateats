@@ -1,5 +1,6 @@
 import React from 'react';
 import RestaurantCard from './RestaurantCard/RestaurantCard';
+import './RestaurantList.css'
 // import { useLoaderData } from 'react-router-dom';
 
 function RestaurantList({restaurants, search, setSearch}) {
@@ -10,23 +11,26 @@ function RestaurantList({restaurants, search, setSearch}) {
 
   let allRestaurants = restaurants;
 
+  
   return (
     <div>
       <div className='searchBar'>
         <input 
           type='text'
           className='search'
-          placeholder='Search'
+          placeholder='Search Restaurants'
           value={search}
-          onChange={(e) => handleSearch(e)}
+          onChange={handleSearch}
         />
       </div>
-      {allRestaurants.map((rest) => (
-        <RestaurantCard 
-          key={rest.id}
-          restaurant={rest}
+      <div className="restaurant-list-container"> 
+        {restaurants.map((rest) => (
+          <RestaurantCard 
+            key={rest.id}
+            restaurant={rest}
           />
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
