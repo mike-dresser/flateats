@@ -4,6 +4,7 @@ import Login from '../Login';
 import { Link } from 'react-router-dom';
 
 function Header({ loggedIn, setLoggedIn }) {
+
   return (
     <div id="header">
       <div id="headerLeft">
