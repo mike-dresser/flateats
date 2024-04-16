@@ -1,0 +1,21 @@
+.restaurant-list-container {
+    max-height: 500px; 
+    overflow-y: auto; 
+    margin: 0;
+    padding: 0;
+  }
+  
+  .searchBar {
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #cccccc;
+  }
+  
+  .search {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px; 
+    box-sizing: border-box; 
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+  }

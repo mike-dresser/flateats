@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import './Login.css';
 
-function Login({ setLoggedIn }) {
+function Login({ setLoggedInUser }) {
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [isShown, setIsShown] = useState(false);
 
   const handleShowLogin = () => {
     setIsShown(!isShown);
-  }
+  };
 
   function handleLogin(e) {
     e.preventDefault();
@@ -21,17 +21,25 @@ function Login({ setLoggedIn }) {
       },
       credentials: 'include',
       body: JSON.stringify(loginSubmission),
-    }).then((response) => {
-      if (response.ok) setLoggedIn(true);
-    });
+    })
+      .then((response) => response.json())
+      .then((user) => {
+        console.log(user);
+        if (user['id']) setLoggedInUser(user);
+      });
   }
   return (
     <div className={`login-container ${isShown ? 'expanded' : ''}`}>
-      <button className='show' onClick={handleShowLogin}>Login</button>
+      <button className="show" onClick={handleShowLogin}>
+        Login
+      </button>
       {isShown && (
         <form onSubmit={(e) => handleLogin(e)} className="login-form">
           <label htmlFor="username">Username</label>
-          <input type="text" onChange={(e) => setUserName(e.target.value)}></input>
+          <input
+            type="text"
+            onChange={(e) => setUserName(e.target.value)}
+          ></input>
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -41,7 +49,7 @@ function Login({ setLoggedIn }) {
         </form>
       )}
     </div>
-  )
+  );
 }
 
 export default Login;

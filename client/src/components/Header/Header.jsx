@@ -2,9 +2,9 @@ import React from 'react';
 import './Header.css';
 import Login from '../Login';
 import { Link } from 'react-router-dom';
+import Logout from '../Logout';
 
-function Header({ loggedIn, setLoggedIn }) {
-
+function Header({ loggedInUser, setLoggedInUser }) {
   return (
     <div id="header">
       <div id="headerLeft">
@@ -17,7 +17,14 @@ function Header({ loggedIn, setLoggedIn }) {
           The <em>only</em> source for reliable lunch recommendations.
         </p>
       </div>
-      {loggedIn ? <p>Welcome!</p> : <Login setLoggedIn={setLoggedIn} />}
+      {loggedInUser ? (
+        <>
+          <p>Welcome, {loggedInUser.username}!</p>
+          <Logout setLoggedInUser={setLoggedInUser} />
+        </>
+      ) : (
+        <Login setLoggedInUser={setLoggedInUser} />
+      )}
     </div>
   );
 }
