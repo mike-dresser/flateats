@@ -1,21 +1,12 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import Header from '../Header/Header';
-import RestaurantMap from '../RestaurantMap';
-import RestaurantList from '../RestaurantList';
-import Login from '../Login';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   const [restaurants, setRestaurants] = useState([]);
 
   const [loggedIn, setLoggedIn] = useState(false);
-
-  const [search, setSearch] = useState('');
-
-  const filteredPost = restaurants.filter((p) => {
-    return p.name.toLowerCase().includes(search.toLowerCase());
-  });
-  console.log(filteredPost);
 
   useEffect(() => {
     const fetchRestaurants = async () => {
@@ -46,14 +37,7 @@ function App() {
   return (
     <>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-      <div id="main">
-        <RestaurantList
-          restaurants={filteredPost}
-          search={search}
-          setSearch={setSearch}
-        />
-        <RestaurantMap />
-      </div>
+      <Outlet context={[restaurants]} />
     </>
   );
 }

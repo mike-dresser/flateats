@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './RestaurantPage.css';
-import Header from '../Header/Header';
 import RestaurantReviews from '../RestaurantReviews';
 import RestaurantMap from '../RestaurantMap';
 import ReviewForm from '../ReviewForm';
@@ -48,11 +47,10 @@ function RestaurantPage({ restaurantProp }) {
   }
 
   return (
-    <div >
-      <Header />
-      <div id='top' >
-        <div id='restaurantMain'>
-          <div id='restaurantDetails'>
+    <div>
+      <div id="top">
+        <div id="restaurantMain">
+          <div id="restaurantDetails">
             <img src={restaurantData.image} alt={restaurantData.name} />
             <h1>{restaurantData.name}</h1>
             <p>Cuisine: {restaurantData.cuisine}</p>
@@ -68,12 +66,12 @@ function RestaurantPage({ restaurantProp }) {
             />
           </div>
         </div>
-      <div id='restaurantForm'>
-        <ReviewForm restaurantId={id} reviewData={restaurantData} />
-      </div>
-      <div id='restaurantReviews'>
-        <RestaurantReviews restaurantId={id} />
-      </div>
+        <div id="restaurantForm">
+          <ReviewForm restaurantId={id} reviewData={restaurantData} />
+        </div>
+        <div id="restaurantReviews">
+          <RestaurantReviews restaurantId={id} />
+        </div>
       </div>
     </div>
   );
