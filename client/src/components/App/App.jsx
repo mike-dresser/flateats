@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom';
 function App() {
   const [restaurants, setRestaurants] = useState([]);
 
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState({});
 
   useEffect(() => {
     const fetchRestaurants = async () => {
@@ -30,13 +30,13 @@ function App() {
       },
       credentials: 'include',
     }).then((res) => {
-      setLoggedIn(res.ok);
+      setLoggedInUser(res.ok);
     });
   }, []);
 
   return (
     <>
-      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      <Header loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
       <Outlet context={[restaurants]} />
     </>
   );
