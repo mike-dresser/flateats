@@ -66,13 +66,14 @@
     font-size: 1.1rem; 
     line-height: 1.5; 
     color: #090909; 
+    margin-bottom: 15px; 
 }
 
 .reviewerName {
     font-weight: bold;
     font-style: italic;
     color: #555;
-    margin-bottom: 15px; 
+    
 }
 
 
