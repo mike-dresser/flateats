@@ -30,9 +30,21 @@ function App() {
   // fetchRestaurants();
   // }, []);
 
+  useEffect(() => {
+    fetch('/api/check_session', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+    }).then((res) => {
+      setLoggedIn(res.ok);
+    });
+  }, []);
+
   return (
     <>
-      <Header loggedIn={loggedIn} />
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <div id="main">
         <RestaurantList />
         <RestaurantMap />

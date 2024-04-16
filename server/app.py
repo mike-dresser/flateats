@@ -134,10 +134,9 @@ def login():
     json = request.get_json()
     user = User.query.filter(User.username == json.get('username')).first()
     if not user or not user.authenticate(json.get('password')):
-        return {'error': 'Invalid username or password'}
+        return {'error': 'Invalid username or password'}, 401
     session['user_id'] = user.id
-    session['username'] = user.username
-    return user.to_dict(rules=('-reviews', '-_password'))
+    return user.to_dict(rules=('-reviews', '-_password')), 200
 
 
 @app.route('/logout', methods=['DELETE'])
@@ -152,10 +151,19 @@ def logout():
 
 @app.route('/check_session', methods=['GET'])
 def check_session():
-    if not session.get('user_id'):
-        return {'error': 'User is not logged in'}, 400
-    return {'user_id': session.get('user_id')}, 200
-
+    # user_id = session.get('user_id')
+    # print('Check recieved')
+    # data = request.get_json()
+    # print('Here is the request', data)
+    # user = User.query.filter_by(id=user_id).first()
+    # if not user:
+    #     return {'error': 'User is not logged in'}, 401
+    # return user.to_dict(rules=('-reviews', '-_password')), 200
+    user = User.query.filter_by(id = session.get('user_id')).first()
+    if user:
+        return user.to_dict(), 200
+    else:
+        return {}, 401
 #### MAY NOT NEED ####
 #@app.route('/map')
 

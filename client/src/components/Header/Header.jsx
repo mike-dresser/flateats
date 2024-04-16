@@ -3,7 +3,7 @@ import './Header.css';
 import Login from '../Login';
 import { Link } from 'react-router-dom';
 
-function Header({ loggedIn }) {
+function Header({ loggedIn, setLoggedIn }) {
   return (
     <div id="header">
       <div id="headerLeft">
@@ -16,7 +16,7 @@ function Header({ loggedIn }) {
           The <em>only</em> source for reliable lunch recommendations.
         </p>
       </div>
-      {loggedIn ? <p>Welcome!</p> : <Login />}
+      {loggedIn ? <p>Welcome!</p> : <Login setLoggedIn={setLoggedIn} />}
     </div>
   );
 }

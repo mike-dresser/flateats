@@ -1,3 +1,4 @@
 {
-  "type": "module"
+  "type": "module",
+  "proxy": "http://localhost:5555"
 }
