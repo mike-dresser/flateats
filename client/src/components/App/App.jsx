@@ -29,9 +29,11 @@ function App() {
         'Content-Type': 'application/json',
       },
       credentials: 'include',
-    }).then((res) => {
-      setLoggedInUser(res.ok);
-    });
+    })
+      .then((res) => res.json())
+      .then((user) => {
+        setLoggedInUser(user.id ? user : null);
+      });
   }, []);
 
   return (
