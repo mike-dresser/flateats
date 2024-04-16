@@ -13,7 +13,11 @@ function Logout({ setLoggedInUser }) {
       .then(() => setLoggedInUser(null));
   }
 
-  return <button onClick={handleLogout}>Logout</button>;
+  return (
+    <button className="show" onClick={handleLogout}>
+      Logout
+    </button>
+  );
 }
 
 export default Logout;
