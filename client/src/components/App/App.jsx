@@ -16,19 +16,19 @@ function App() {
   //   .catch((error) => console.error('Error fetching data:', error));
   // }, []);
 
-  useEffect(() => {
-    const fetchRestaurants = async () => {
-      try {
-        const response = await fetch('http://127.0.0.1:5555/restaurants');
-        const data = await response.json();
-        setRestaurants(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchRestaurants = async () => {
+  //     try {
+  //       const response = await fetch('http://127.0.0.1:5555/restaurants');
+  //       const data = await response.json();
+  //       setRestaurants(data);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
 
-    fetchRestaurants();
-  }, []);
+  // fetchRestaurants();
+  // }, []);
 
   return (
     <>
