@@ -67,8 +67,7 @@ function ReviewForm({ restaurantId, reviewData }) {
                         value={reviewTitle}
                         onChange={(e) => setReviewTitle(e.target.value)}
                     />
-                    <input 
-                        type='text'
+                    <textarea 
                         name='body'
                         placeholder='Write your review here'
                         className='body-text'
