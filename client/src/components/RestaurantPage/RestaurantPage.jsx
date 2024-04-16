@@ -16,21 +16,21 @@ function RestaurantPage({ restaurantProp }) {
   const [isLoading, setIsLoading] = useState(true); // placed to keep track of whether the data is being fetched
   const { id } = useParams(); // we get the id from the URL parameters using this hook, and we capture the dynamic part of the URL that identifies a specific restaurant
 
+  const fetchRestaurant = async () => {
+    // define async function and call within the effect, fetch the data based on id, parse the JSON response, update the restaurantData state.
+    setIsLoading(true);
+    try {
+      const response = await fetch(`http://127.0.0.1:5555/restaurants/${id}`);
+      const data = await response.json();
+      setRestaurantData(data);
+    } catch (error) {
+      console.error('Failed to fetch restaurant data:', error); // minor error handling done here
+    } finally {
+      setIsLoading(false); // set isLoading to false once the fetch is complete
+    }
+  };
   useEffect(() => {
     // hook runs when the id value changes
-    const fetchRestaurant = async () => {
-      // define async function and call within the effect, fetch the data based on id, parse the JSON response, update the restaurantData state.
-      setIsLoading(true);
-      try {
-        const response = await fetch(`http://127.0.0.1:5555/restaurants/${id}`);
-        const data = await response.json();
-        setRestaurantData(data);
-      } catch (error) {
-        console.error('Failed to fetch restaurant data:', error); // minor error handling done here
-      } finally {
-        setIsLoading(false); // set isLoading to false once the fetch is complete
-      }
-    };
 
     fetchRestaurant();
   }, []);
@@ -67,7 +67,7 @@ function RestaurantPage({ restaurantProp }) {
           </div>
         </div>
         <div id="restaurantForm">
-          <ReviewForm restaurantId={id} reviewData={restaurantData} />
+          <ReviewForm restaurantId={id} fetchRestaurant={fetchRestaurant} />
         </div>
         <div id="restaurantReviews">
           <RestaurantReviews restaurantId={id} />
