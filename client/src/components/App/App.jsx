@@ -7,11 +7,15 @@ import Login from '../Login';
 
 function App() {
   const [restaurants, setRestaurants] = useState([]);
+
+  const [loggedIn, setLoggedIn] = useState(false);
+
   const [search, setSearch] = useState('')
 
   const filteredPost = restaurants.filter((p) => {
     return p.name.toLowerCase().includes(search.toLowerCase()) || p.review.toLowerCase().includes(search.toLowerCase())
   })
+
 
   // useEffect(() => {
   //   fetch("http://127.0.0.1:5555/restaurants")
@@ -20,23 +24,35 @@ function App() {
   //   .catch((error) => console.error('Error fetching data:', error));
   // }, []);
 
-  useEffect(() => {
-    const fetchRestaurants = async () => {
-      try {
-        const response = await fetch('http://127.0.0.1:5555/restaurants');
-        const data = await response.json();
-        setRestaurants(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchRestaurants = async () => {
+  //     try {
+  //       const response = await fetch('http://127.0.0.1:5555/restaurants');
+  //       const data = await response.json();
+  //       setRestaurants(data);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
 
-    fetchRestaurants();
+  // fetchRestaurants();
+  // }, []);
+
+  useEffect(() => {
+    fetch('/api/check_session', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+    }).then((res) => {
+      setLoggedIn(res.ok);
+    });
   }, []);
 
   return (
     <>
-      <Header />
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <div id="main">
         <RestaurantList restaurants={filteredPost} setData={setRestaurants} search={search} setSearch={setSearch} />
         <RestaurantMap />

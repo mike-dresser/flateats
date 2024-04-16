@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import './Login.css';
 
-function Login() {
+function Login({ setLoggedIn }) {
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
 
   function handleLogin(e) {
     e.preventDefault();
     let loginSubmission = { username: username, password: password };
-    console.log(loginSubmission);
 
-    fetch(`http://127.0.0.1:5555/login`, {
+    fetch(`/api/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
+      credentials: 'include',
       body: JSON.stringify(loginSubmission),
-    })
-      .then((response) => response.json())
-      .then((r) => console.log(r));
+    }).then((response) => {
+      if (response.ok) setLoggedIn(true);
+    });
   }
   return (
     <div className="login-container">
