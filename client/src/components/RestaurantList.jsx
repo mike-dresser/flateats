@@ -1,6 +1,6 @@
 import React from 'react';
 import RestaurantCard from './RestaurantCard/RestaurantCard';
-import { useLoaderData } from 'react-router-dom';
+// import { useLoaderData } from 'react-router-dom';
 
 function RestaurantList({restaurants, search, setSearch}) {
   const handleSearch = (e) => {

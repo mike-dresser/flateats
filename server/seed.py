@@ -144,8 +144,8 @@ with app.app_context():
             distance_time = "6", 
             price = "2", 
             cuisine = "pizza, italian", 
-            pos_lat = "40.7067201", 
-            pos_lon = "-74.0142626",
+            pos_lat = "40.7081484", 
+            pos_lon = "-74.0151853",
             image = "https://lh5.googleusercontent.com/p/AF1QipMlREwwTBzsPdvB0I1Y0S6fpWXyoerPYDqhzAul=w408-h544-k-no"
         ),
         Restaurant (
