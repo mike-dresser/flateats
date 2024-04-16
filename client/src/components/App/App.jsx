@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom';
 function App() {
   const [restaurants, setRestaurants] = useState([]);
 
-  const [loggedInUser, setLoggedInUser] = useState({});
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
   useEffect(() => {
     const fetchRestaurants = async () => {
