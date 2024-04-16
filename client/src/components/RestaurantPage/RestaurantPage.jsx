@@ -71,6 +71,8 @@ function RestaurantPage({ restaurantProp }) {
       <div id='restaurantReviews'>
         <RestaurantReviews restaurantId={id} />
       </div>
+      </div>
+      <div id='restaurantForm'>
         <ReviewForm restaurantId={id} />
       </div>
     </div>
