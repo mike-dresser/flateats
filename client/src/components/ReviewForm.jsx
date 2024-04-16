@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import './ReviewForm.css'
 
-function ReviewForm({ restaurantId }) {
+function ReviewForm({ restaurantId, reviewData }) {
     const [reviewTitle, setReviewTitle] = useState("");
     const [reviewBody, setReviewBody] = useState("");
     const [reviewRating, setReviewRating] = useState(""); 
@@ -40,6 +41,7 @@ function ReviewForm({ restaurantId }) {
             setReviewRating(0);
             setIsShown(false);
             setErrorMessage("");
+            data.reverse();
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -53,7 +55,7 @@ function ReviewForm({ restaurantId }) {
     }
 
     return (
-        <div className='form-container'>
+        <div className={`form-container ${isShown ? 'expanded' : ''}`}>
             <button className='show' onClick={handleShow}>Write a review</button>
             {isShown && (
                 <form className='form' onSubmit={handleReviewSubmit}>

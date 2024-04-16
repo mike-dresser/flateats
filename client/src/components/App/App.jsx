@@ -7,7 +7,15 @@ import Login from '../Login';
 
 function App() {
   const [restaurants, setRestaurants] = useState([]);
+
   const [loggedIn, setLoggedIn] = useState(false);
+
+  const [search, setSearch] = useState('')
+
+  const filteredPost = restaurants.filter((p) => {
+    return p.name.toLowerCase().includes(search.toLowerCase()) || p.review.toLowerCase().includes(search.toLowerCase())
+  })
+
 
   // useEffect(() => {
   //   fetch("http://127.0.0.1:5555/restaurants")
@@ -46,7 +54,7 @@ function App() {
     <>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <div id="main">
-        <RestaurantList />
+        <RestaurantList restaurants={filteredPost} setData={setRestaurants} search={search} setSearch={setSearch} />
         <RestaurantMap />
       </div>
     </>

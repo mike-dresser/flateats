@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Login.css';
 
 function Login({ setLoggedIn }) {
   const [username, setUserName] = useState('');
@@ -20,7 +21,8 @@ function Login({ setLoggedIn }) {
     });
   }
   return (
-    <form onSubmit={(e) => handleLogin(e)}>
+    <div className="login-container">
+    <form onSubmit={(e) => handleLogin(e)} className="login-form">
       <label htmlFor="username">Username</label>
       <input type="text" onChange={(e) => setUserName(e.target.value)}></input>
       <label htmlFor="password">Password</label>
@@ -30,6 +32,7 @@ function Login({ setLoggedIn }) {
       ></input>
       <input type="submit"></input>
     </form>
+    </div>
   );
 }
 
