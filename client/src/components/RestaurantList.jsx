@@ -2,8 +2,13 @@ import React from 'react';
 import RestaurantCard from './RestaurantCard/RestaurantCard';
 import { useLoaderData } from 'react-router-dom';
 
-function RestaurantList({restaurants, setData, search, setSearch}) {
-  let allRestaurants = useLoaderData();
+function RestaurantList({restaurants, search, setSearch}) {
+  const handleSearch = (e) => {
+    console.log(e.target.value)
+    setSearch(e.target.value)
+  }
+
+  let allRestaurants = restaurants;
 
   return (
     <div>
@@ -13,11 +18,14 @@ function RestaurantList({restaurants, setData, search, setSearch}) {
           className='search'
           placeholder='Search'
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => handleSearch(e)}
         />
       </div>
       {allRestaurants.map((rest) => (
-        <RestaurantCard restaurant={rest} />
+        <RestaurantCard 
+          key={rest.id}
+          restaurant={rest}
+          />
       ))}
     </div>
   );

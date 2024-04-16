@@ -10,8 +10,9 @@ function App() {
   const [search, setSearch] = useState('')
 
   const filteredPost = restaurants.filter((p) => {
-    return p.name.toLowerCase().includes(search.toLowerCase()) || p.review.toLowerCase().includes(search.toLowerCase())
+    return p.name.toLowerCase().includes(search.toLowerCase())
   })
+  console.log(filteredPost)
 
   // useEffect(() => {
   //   fetch("http://127.0.0.1:5555/restaurants")
@@ -38,7 +39,7 @@ function App() {
     <>
       <Header />
       <div id="main">
-        <RestaurantList restaurants={filteredPost} setData={setRestaurants} search={search} setSearch={setSearch} />
+        <RestaurantList restaurants={filteredPost} search={search} setSearch={setSearch} />
         <RestaurantMap />
       </div>
     </>
