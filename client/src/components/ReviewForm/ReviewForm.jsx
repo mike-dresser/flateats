@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import './ReviewForm.css'
+import { useOutletContext } from 'react-router-dom';
 
 function ReviewForm({ restaurantId, reviewData }) {
+    // const [loggedInUser] = useOutletContext()
+
     const [reviewTitle, setReviewTitle] = useState("");
     const [reviewBody, setReviewBody] = useState("");
     const [reviewRating, setReviewRating] = useState(""); 
@@ -16,13 +19,14 @@ function ReviewForm({ restaurantId, reviewData }) {
             setErrorMessage("Please select a valid rating.");
             return; // Prevent submission if rating isn't selected
         }
-
+        // console.log(loggedInUser)
         const newReview = {
             title: reviewTitle,
             body: reviewBody,
             rating: parseInt(reviewRating),
             restaurant_id: restaurantId,
-            user_id: 1 //this will need to be changed
+            user_id: 1 // need to change!!!
+            
         };
 
         fetch(`http://127.0.0.1:5555/reviews`, {
