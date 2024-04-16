@@ -84,8 +84,115 @@ with app.app_context():
             pos_lat = "40.7049236", 
             pos_lon = "-74.0125784",
             image = "https://lh5.googleusercontent.com/p/AF1QipNgy-R7EDtPBMwcbCtwiKWkUclXL1WDrOkC8-ma=w408-h544-k-no"
-        )   
-
+        ),
+         Restaurant (
+            name = "Pisillo Italian Panini", 
+            distance_time = "13", 
+            price = "2", 
+            cuisine = "italian, panini", 
+            pos_lat = "40.7079249", 
+            pos_lon = "-74.0132937",
+            image = "https://lh3.googleusercontent.com/p/AF1QipMm63jOB-QIJkSgzp9W_mjTyZo6_5pvk8COAyPU=s680-w680-h510"
+        ),      
+        Restaurant (
+            name = "West Bank Gourmet", 
+            distance_time = "8", 
+            price = "2", 
+            cuisine = "sandwiches, subs", 
+            pos_lat = "40.7063636", 
+            pos_lon = "-74.015617",
+            image = "https://lh3.googleusercontent.com/p/AF1QipOl1NHQtX1UThOp0RUNSurBrzWlaaFdyiBTWGEx=s680-w680-h510"
+        ),
+        Restaurant (
+            name = "Naya - Fidi", 
+            distance_time = "6", 
+            price = "2", 
+            cuisine = "mediterannean, bowl", 
+            pos_lat = "40.7059467", 
+            pos_lon = "-74.0146192",
+            image = "https://lh5.googleusercontent.com/p/AF1QipOLXJEHO1blqtJhn_RBrGhOHh89aAdZtQ6YHrd4=w408-h306-k-no"
+        ),
+        Restaurant (
+            name = "Cava", 
+            distance_time = "8", 
+            price = "2", 
+            cuisine = "mediterannean, bowl", 
+            pos_lat = "40.7061888", 
+            pos_lon = "-74.0128002",
+            image = "https://lh5.googleusercontent.com/p/AF1QipPWdQdHCwG0mYDk5QmhHxanl-pOgS4ujL8t8Ekf=w408-h306-k-no"
+        ),
+        Restaurant (
+            name = "Xi’an Famous Foods", 
+            distance_time = "9", 
+            price = "2", 
+            cuisine = "chinese, noodles, dumplings", 
+            pos_lat = "40.7075032", 
+            pos_lon = "-74.0141698",
+            image = "https://lh5.googleusercontent.com/p/AF1QipNKT3WJaNiomzAf2GkJ6UcsTa7_SoOgZUXNMPgy=w408-h307-k-no"
+        ),
+        Restaurant (
+            name = "Sticky’s", 
+            distance_time = "10", 
+            price = "2", 
+            cuisine = "american, kids", 
+            pos_lat = "40.7076008", 
+            pos_lon = "-74.0140323",
+            image = "https://lh5.googleusercontent.com/p/AF1QipPlX34to5xzsa78wxXOIR8UAmkFF_H9vR66aLAS=w408-h272-k-no"
+        ),
+        Restaurant (
+            name = "Sienna Pizza", 
+            distance_time = "6", 
+            price = "2", 
+            cuisine = "pizza, italian", 
+            pos_lat = "40.7067201", 
+            pos_lon = "-74.0142626",
+            image = "https://lh5.googleusercontent.com/p/AF1QipMlREwwTBzsPdvB0I1Y0S6fpWXyoerPYDqhzAul=w408-h544-k-no"
+        ),
+        Restaurant (
+            name = "Sam's Falafel Stand", 
+            distance_time = "7", 
+            price = "2", 
+            cuisine = "middle eastern, vegetarian", 
+            pos_lat = "40.7071355", 
+            pos_lon = "-74.0150023",
+            image = "https://lh5.googleusercontent.com/p/AF1QipOfdu0JwT0Sqo4AIbTAhpCaSrFlDHxswS7Aeac=w408-h544-k-no"
+        ),
+        Restaurant (
+            name = "Dominic's", 
+            distance_time = "4", 
+            price = "2", 
+            cuisine = "italian, sausage", 
+            pos_lat = "40.7043883", 
+            pos_lon = "-74.0161481",
+            image = "https://lh5.googleusercontent.com/p/AF1QipNm3NAp4W5kEYoiv0iio2bAyvVCWe4pgRYz5uQI=w408-h306-k-no"
+        ),
+        Restaurant (
+            name = "Chick-Fil-A", 
+            distance_time = "11", 
+            price = "2", 
+            cuisine = "american homophobic, sandwich", 
+            pos_lat = "40.7083736", 
+            pos_lon = "-74.0137637",
+            image = "https://lh3.googleusercontent.com/p/AF1QipMbPwWh8pqi58DX5HtZgBpHmZVL4mZIth51x97q=s680-w680-h510"
+        ),
+        Restaurant (
+            name = "Blue Park Kitchen", 
+            distance_time = "11", 
+            price = "2", 
+            cuisine = "american, bowls", 
+            pos_lat = "40.706854", 
+            pos_lon = "-74.0119892",
+            image = "https://lh5.googleusercontent.com/p/AF1QipNvPuqH251_Vufr0qyzx2r92FMbi29mGXMhlocB=w408-h510-k-no"
+        ),
+        Restaurant (
+            name = "Urbanspace Pearl", 
+            distance_time = "8", 
+            price = "3", 
+            cuisine = "misc", 
+            pos_lat = "40.7041898", 
+            pos_lon = "-74.0132746",
+            image = "https://lh5.googleusercontent.com/p/AF1QipNhtziTFTik7xO5w9jX42EBds8H0lFnSRapn6A=w408-h272-k-no"
+        )
         # Restaurant (
         #     name = "", 
         #     distance_time = "", 
@@ -94,7 +201,7 @@ with app.app_context():
         #     pos_lat = "", 
         #     pos_lon = "",
         #     image = ""
-        # )   
+        # )
     ]
 
     for restaurant in restaurants:
