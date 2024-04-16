@@ -24,7 +24,8 @@ function Login({ setLoggedInUser }) {
     })
       .then((response) => response.json())
       .then((user) => {
-        if (user) setLoggedInUser(user);
+        console.log(user);
+        if (user['id']) setLoggedInUser(user);
       });
   }
   return (

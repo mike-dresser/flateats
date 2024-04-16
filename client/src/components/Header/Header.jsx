@@ -2,6 +2,7 @@ import React from 'react';
 import './Header.css';
 import Login from '../Login';
 import { Link } from 'react-router-dom';
+import Logout from '../Logout';
 
 function Header({ loggedInUser, setLoggedInUser }) {
   return (
@@ -19,6 +20,7 @@ function Header({ loggedInUser, setLoggedInUser }) {
       {loggedInUser ? (
         <>
           <p>Welcome, {loggedInUser.username}!</p>
+          <Logout setLoggedInUser={setLoggedInUser} />
         </>
       ) : (
         <Login setLoggedInUser={setLoggedInUser} />
