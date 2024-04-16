@@ -45,9 +45,9 @@ function RestaurantReviews({ restaurantId }) {
       {reviews.map((review) => (
         <div key={review.id} className='reviewEntry'>
           <h3>{review.title}</h3>
-          <div className="reviewText">{review.body}</div>
-          <div className="reviewText">Rating: {review.rating}</div>
           <div className="reviewerName">{review.user.username}</div>
+          <div className="reviewText">Rating: {review.rating}</div>
+          <div className="reviewText">{review.body}</div>
         </div>
       ))}
       {/* <ReviewForm restaurantId={id} /> */}
