@@ -37,7 +37,7 @@ function App() {
   return (
     <>
       <Header loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
-      <Outlet context={[restaurants]} />
+      <Outlet context={[restaurants, loggedInUser]} />
     </>
   );
 }

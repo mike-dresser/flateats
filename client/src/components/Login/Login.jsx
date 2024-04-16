@@ -30,9 +30,11 @@ function Login({ setLoggedInUser }) {
   }
   return (
     <div className={`login-container ${isShown ? 'expanded' : ''}`}>
-      <button className="show" onClick={handleShowLogin}>
-        Login
-      </button>
+      {!isShown && (
+        <button className="show" onClick={handleShowLogin}>
+          Login
+        </button>
+      )}
       {isShown && (
         <form onSubmit={(e) => handleLogin(e)} className="login-form">
           <label htmlFor="username">Username</label>
