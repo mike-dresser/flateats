@@ -152,9 +152,9 @@ def logout():
 
 @app.route('/check_session', methods=['GET'])
 def check_session():
-    if not session['user_id']:
+    if not session.get('user_id'):
         return {'error': 'User is not logged in'}, 400
-    return session['user_id'], 200
+    return {'user_id': session.get('user_id')}, 200
 
 #### MAY NOT NEED ####
 #@app.route('/map')

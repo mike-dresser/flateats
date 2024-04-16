@@ -7,6 +7,7 @@ import Login from '../Login';
 
 function App() {
   const [restaurants, setRestaurants] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   // useEffect(() => {
   //   fetch("http://127.0.0.1:5555/restaurants")
@@ -31,7 +32,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header loggedIn={loggedIn} />
       <div id="main">
         <RestaurantList />
         <RestaurantMap />

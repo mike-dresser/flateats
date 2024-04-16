@@ -3,7 +3,7 @@ import './Header.css';
 import Login from '../Login';
 import { Link } from 'react-router-dom';
 
-function Header() {
+function Header({ loggedIn }) {
   return (
     <div id="header">
       <div id="headerLeft">
@@ -16,7 +16,7 @@ function Header() {
           The <em>only</em> source for reliable lunch recommendations.
         </p>
       </div>
-      <Login />
+      {loggedIn ? <p>Welcome!</p> : <Login />}
     </div>
   );
 }
