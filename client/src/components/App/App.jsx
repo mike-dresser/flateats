@@ -13,8 +13,9 @@ function App() {
   const [search, setSearch] = useState('')
 
   const filteredPost = restaurants.filter((p) => {
-    return p.name.toLowerCase().includes(search.toLowerCase()) || p.review.toLowerCase().includes(search.toLowerCase())
+    return p.name.toLowerCase().includes(search.toLowerCase())
   })
+  console.log(filteredPost)
 
 
   // useEffect(() => {
@@ -54,7 +55,7 @@ function App() {
     <>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <div id="main">
-        <RestaurantList restaurants={filteredPost} setData={setRestaurants} search={search} setSearch={setSearch} />
+        <RestaurantList restaurants={filteredPost} search={search} setSearch={setSearch} />
         <RestaurantMap />
       </div>
     </>
