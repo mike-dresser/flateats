@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './ReviewForm.css';
-import { useOutletContext } from 'react-router-dom';
 
-function ReviewForm({ restaurantId, fetchRestaurant }) {
+function ReviewForm({ restaurantId, fetchRestaurant, loggedInUser }) {
   // const [loggedInUser] = useOutletContext()
 
   const [reviewTitle, setReviewTitle] = useState('');
@@ -11,6 +10,7 @@ function ReviewForm({ restaurantId, fetchRestaurant }) {
 
   const [isShown, setIsShown] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  console.log('In restaurant form, the logged in user is', loggedInUser);
 
   const handleReviewSubmit = (e) => {
     e.preventDefault();
@@ -25,7 +25,7 @@ function ReviewForm({ restaurantId, fetchRestaurant }) {
       body: reviewBody,
       rating: parseInt(reviewRating),
       restaurant_id: restaurantId,
-      user_id: 1, // need to change!!!
+      user_id: loggedInUser.id, // need to change!!!
     };
 
     fetch(`http://127.0.0.1:5555/reviews`, {

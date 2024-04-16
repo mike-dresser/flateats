@@ -4,14 +4,14 @@ import RestaurantReviews from '../RestaurantReviews';
 import RestaurantMap from '../RestaurantMap';
 import ReviewForm from '../ReviewForm';
 import './RestaurantPage.css';
-import { useLoaderData, useParams } from 'react-router-dom'; // load data specific to the current route, and extract to the URL parameter
+import { useLoaderData, useParams, useOutletContext } from 'react-router-dom'; // load data specific to the current route, and extract to the URL parameter
 
 function RestaurantPage({ restaurantProp }) {
   let singleRestaurant = useLoaderData();
   if (restaurantProp) {
     singleRestaurant = restaurantProp;
   }
-
+  const { loggedInUser } = useOutletContext();
   const [restaurantData, setRestaurantData] = useState(null); // stores the data and tracks the state of restaurant's data we fetch from API
   const [isLoading, setIsLoading] = useState(true); // placed to keep track of whether the data is being fetched
   const { id } = useParams(); // we get the id from the URL parameters using this hook, and we capture the dynamic part of the URL that identifies a specific restaurant
@@ -67,7 +67,11 @@ function RestaurantPage({ restaurantProp }) {
           </div>
         </div>
         <div id="restaurantForm">
-          <ReviewForm restaurantId={id} fetchRestaurant={fetchRestaurant} />
+          <ReviewForm
+            restaurantId={id}
+            fetchRestaurant={fetchRestaurant}
+            loggedInUser={loggedInUser}
+          />
         </div>
         <div id="restaurantReviews">
           <RestaurantReviews restaurantId={id} />
