@@ -81,7 +81,15 @@ def get_users_by_id(id):
     
     if request.method == 'GET':
         return user_id.to_dict(), 200
+    
+@app.route('/user/<string:username>', methods=['GET'])
+def get_user_profile(username):
+    user = User.query.filter_by(username=username).first()
 
+    if user:
+        return user.to_dict(), 200
+    else:
+        return {"error": "User not found"}, 404
 
 @app.route('/reviews', methods=['GET', 'POST'])
 def all_reviews():

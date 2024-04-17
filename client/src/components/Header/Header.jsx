@@ -22,7 +22,11 @@ function Header({ loggedInUser, setLoggedInUser }) {
           <>
             <Logout setLoggedInUser={setLoggedInUser} />
             <p>
-              Welcome, <span className="username">{loggedInUser.username}</span>
+
+              Welcome,{' '}
+              <Link to={`/user/${loggedInUser.username}`} className="username">
+                {loggedInUser.username}
+              </Link>
               !
             </p>
           </>

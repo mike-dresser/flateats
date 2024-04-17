@@ -6,6 +6,7 @@ import Home from './components/Home.jsx';
 import RestaurantList from './components/RestaurantList';
 import RestaurantPage from './components/RestaurantPage';
 import Signup from './components/Signup/Signup.jsx';
+import UserProfile from './components/UserProfile/UserProfile.jsx';
 
 import { restaurantListLoader } from './loaders.js';
 
@@ -31,6 +32,9 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <Signup />,
       },
+        path: '/user/:username',
+        element: <UserProfile />,
+      }
     ],
   },
 ]);
