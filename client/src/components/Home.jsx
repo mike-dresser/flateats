@@ -16,7 +16,7 @@ function Home() {
         search={search}
         setSearch={setSearch}
       />
-      <RestaurantMap />
+      <RestaurantMap restaurants={filteredPost}/>
     </div>
   );
 }
