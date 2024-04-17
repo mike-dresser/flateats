@@ -29,15 +29,19 @@ function App() {
         'Content-Type': 'application/json',
       },
       credentials: 'include',
-    }).then((res) => {
-      setLoggedInUser(res.ok);
-    });
+    })
+      .then((res) => res.json())
+      .then((user) => {
+        setLoggedInUser(user.id ? user : null);
+      });
   }, []);
 
   return (
     <>
       <Header loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
-      <Outlet context={[restaurants, loggedInUser]} />
+      <Outlet
+        context={{ restaurants: restaurants, loggedInUser: loggedInUser }}
+      />
     </>
   );
 }

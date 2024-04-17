@@ -12,7 +12,7 @@ body {
 }
 
 #main {
-  padding: 4em 2em;
+  margin-top: 2em;
   display: flex;
   justify-content: space-evenly;
 }
@@ -36,11 +36,11 @@ body {
   padding: 20px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background: white;
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
