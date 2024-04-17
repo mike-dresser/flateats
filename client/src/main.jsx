@@ -28,7 +28,7 @@ const router = createBrowserRouter([
         element: <RestaurantPage />,
       },
       {
-        path: '/users/:username',
+        path: '/user/:username',
         element: <UserProfile />,
       }
     ],

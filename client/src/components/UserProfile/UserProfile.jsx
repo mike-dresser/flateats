@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useOutletContext } from 'react-router-dom';
 
 function UserProfile() {
+
+    const {loggedInUser} = useOutletContext()
+
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -8,7 +12,7 @@ function UserProfile() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:5555/users/${username}`);
+        const response = await fetch(`http://127.0.0.1:5555/users/${loggedInUser.id}`);
         if (!response.ok) {
           throw Error('No Network Response');
         }
@@ -25,21 +29,9 @@ function UserProfile() {
     fetchUserData();
   }, []);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error.message}</p>;
-  }
-  console.log(data.username)
-
   return (
+
     <div>
-        <p>Testing Testing Testing</p>
-    </div>,
-    <div>
-      Display user data here
       {userData && (
         <div>
           <h2>{userData.username}</h2>
