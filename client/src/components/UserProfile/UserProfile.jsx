@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useOutletContext } from 'react-router-dom';
+import { useOutletContext, Link } from 'react-router-dom';
 
 function UserProfile() {
   const { loggedInUser } = useOutletContext();
@@ -25,7 +25,7 @@ function UserProfile() {
         setLoading(false);
       }
     };
-
+    console.log(loggedInUser.id)
     fetchUserData();
   }, [loggedInUser.id]); 
 
@@ -48,9 +48,13 @@ function UserProfile() {
                 <h2>User profile: {userDetails.username}</h2>
                 {reviews.map(review => (
                     <div key={review.id} className='reviewEntry'>
-                        <h3>{review.restaurant.name}</h3>
-                        <div>{review.title}</div>
-                        <div className='reviewText'>Restuarant Rating: {review.rating}</div>
+                        <h3>
+                        <Link to={`/restaurants/${review.restaurant.id}`} className="link-style">
+                            {review.restaurant.name}
+                        </Link>
+                        </h3>
+                        <div className='reviewText'>Restaurant Rating: {review.rating}</div>
+                        <div className='reviewText'>{review.title}</div>
                         <div className='reviewText'>Review: {review.body}</div>
                         <div className='userReviewCreated'>Submitted on: {formatDate(review.created_at)}</div>
                     </div>
