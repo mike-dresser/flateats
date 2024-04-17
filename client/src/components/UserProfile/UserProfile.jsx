@@ -42,15 +42,16 @@ function UserProfile() {
     return formattedDate;
   }
   return (
-    <div id='allUserReviews'>
+    <div id='restaurantReviews'>
         {userDetails && (
             <div>
                 <h2>User profile: {userDetails.username}</h2>
                 {reviews.map(review => (
-                    <div key={review.id} className='userReviewList'>
-                        <h3>{review.title}</h3>
-                        <div className='userReview'>Restuarant Rating: {review.rating}</div>
-                        <div className='userReviewBody'>Review: {review.body}</div>
+                    <div key={review.id} className='reviewEntry'>
+                        <h3>{review.restaurant.name}</h3>
+                        <div>{review.title}</div>
+                        <div className='reviewText'>Restuarant Rating: {review.rating}</div>
+                        <div className='reviewText'>Review: {review.body}</div>
                         <div className='userReviewCreated'>Submitted on: {formatDate(review.created_at)}</div>
                     </div>
                 ))}
