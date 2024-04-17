@@ -1,14 +1,17 @@
 .restaurant-list-container {
-    max-height: 450px; 
+    height: 54vh; 
+    width: 50vh;
     overflow-y: auto; 
     margin: 0;
     padding: 0;
+    border-radius: 8px;
   }
   
   .searchBar {
     padding: 10px;
     background-color: #f8f8f8;
     border-bottom: 1px solid #cccccc;
+    border-radius: 8px;
   }
   
   .search {

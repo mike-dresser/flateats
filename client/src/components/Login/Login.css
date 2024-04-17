@@ -1,43 +1,58 @@
 .login-form {
-    max-width: 300px;
-    margin: 10px auto;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .login-container {
-    text-align: center;
-    /* padding: 20px; */
-    padding-top: 10px;
-    padding-right: 20px;
-  }
-  
-  .login-form input[type="submit"] {
-    padding: 10px;
-    margin-top: 5px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .login-form input[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-
-  .expanded {
-    height: 100%;
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
-  .show {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-  }
+.login-container {
+  text-align: center;
+  position: relative;
+  padding-top: 10px;
+  padding-right: 20px;
+}
+
+.login-form input[type='submit'] {
+  padding: 10px;
+  margin-top: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form input[type='submit']:hover {
+  background-color: #0056b3;
+}
+
+.login-expanded {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.show {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.signup-link {
+  color: lightblue;
+  font-style: oblique;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+p {
+  padding-top: 0.5em;
+}

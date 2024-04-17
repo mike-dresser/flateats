@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
+import { Link } from 'react-router-dom';
 
 function Login({ setLoggedInUser }) {
   const [username, setUserName] = useState('');
@@ -29,10 +30,10 @@ function Login({ setLoggedInUser }) {
       });
   }
   return (
-    <div className={`login-container ${isShown ? 'expanded' : ''}`}>
+    <div className={`login-container ${isShown ? 'login-expanded' : ''}`}>
       {!isShown && (
         <button className="show" onClick={handleShowLogin}>
-          Login
+          Login or Sign Up
         </button>
       )}
       {isShown && (
@@ -48,6 +49,14 @@ function Login({ setLoggedInUser }) {
             onChange={(e) => setPassword(e.target.value)}
           ></input>
           <input type="submit"></input>
+          <p>
+            Not a user?{' '}
+            <span>
+              <Link to="/signup" className="signup-link">
+                Sign up
+              </Link>
+            </span>
+          </p>
         </form>
       )}
     </div>
