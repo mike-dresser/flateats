@@ -5,6 +5,7 @@ import App from './components/App';
 import Home from './components/Home.jsx';
 import RestaurantList from './components/RestaurantList';
 import RestaurantPage from './components/RestaurantPage';
+import UserProfile from './components/UserProfile/UserProfile.jsx';
 
 import { restaurantListLoader, restaurantLoader } from './loaders.js';
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
         path: '/restaurants/:id',
         element: <RestaurantPage />,
       },
+      {
+        path: '/users/:username',
+        elemenet: <UserProfile />,
+      }
     ],
   },
 ]);
