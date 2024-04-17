@@ -67,7 +67,7 @@ def get_users_users():
         db.session.add(new_user)
         db.session.commit()
 
-        return new_review.to_dict(), 201
+        return new_user.to_dict(), 201
 
 @app.route('/users/<int:id>', methods=['GET'])
 def get_users_by_id(id):
@@ -78,7 +78,15 @@ def get_users_by_id(id):
     
     if request.method == 'GET':
         return user_id.to_dict(), 200
+    
+@app.route('/user/<string:username>', methods=['GET'])
+def get_user_profile(username):
+    user = User.query.filter_by(username=username).first()
 
+    if user:
+        return user.to_dict(), 200
+    else:
+        return {"error": "User not found"}, 404
 
 @app.route('/reviews', methods=['GET', 'POST'])
 def all_reviews():
