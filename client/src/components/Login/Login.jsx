@@ -30,7 +30,7 @@ function Login({ setLoggedInUser }) {
       });
   }
   return (
-    <div className={`login-container ${isShown ? 'expanded' : ''}`}>
+    <div className={`login-container ${isShown ? 'login-expanded' : ''}`}>
       {!isShown && (
         <button className="show" onClick={handleShowLogin}>
           Login or Sign Up
