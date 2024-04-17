@@ -46,7 +46,9 @@ def restaurants_by_id(id):
         return rest_id.to_dict(), 200
 
 @app.route('/users', methods=['GET', 'POST'])
-def get_users_users():
+
+def all_users():
+
     if request.method == 'GET':
         users_obj = User.query.all()
 
@@ -56,18 +58,19 @@ def get_users_users():
 
         return users_dict, 200
     
-    if request.method == 'POST':
-        json_data = request.get_json()
 
-        new_user = User(
-            username=json_data.get('username'),
-            password=json_data.get('password')
-        )
+    elif request.method == 'POST':
+        json = request.get_json()
+        is_duplicate = User.query.filter_by(username=json['username']).first()
+        if is_duplicate:
+            return {'error': 'This username is taken.'}, 400
 
+        new_user = User(username=json.get('username'), password=json.get('password'))
         db.session.add(new_user)
         db.session.commit()
 
         return new_user.to_dict(), 201
+
 
 @app.route('/users/<int:id>', methods=['GET'])
 def get_users_by_id(id):
@@ -101,7 +104,7 @@ def all_reviews():
     
     if request.method == 'POST':
         json_data = request.get_json()
-
+ 
         new_review = Review(
             rating=json_data.get('rating'),
             title=json_data.get('title'),
@@ -112,7 +115,6 @@ def all_reviews():
 
         db.session.add(new_review)
         db.session.commit()
-
         return new_review.to_dict(), 201
 
 @app.route('/reviews/<int:id>', methods=['GET', 'PATCH'])
