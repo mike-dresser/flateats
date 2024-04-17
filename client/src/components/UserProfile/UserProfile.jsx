@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 
 function UserProfile() {
+  const { loggedInUser } = useOutletContext();
 
-    const {loggedInUser} = useOutletContext()
-
-  const [userData, setUserData] = useState(null);
+  const [userDetails, setUserDetails] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -14,30 +14,48 @@ function UserProfile() {
       try {
         const response = await fetch(`http://127.0.0.1:5555/users/${loggedInUser.id}`);
         if (!response.ok) {
-          throw Error('No Network Response');
+          throw new Error('No Network Response');
         }
         const data = await response.json();
-        setUserData(data);
+        setUserDetails(data);
+        setReviews(data.reviews);
         setLoading(false);
-        console.log(data)
       } catch (error) {
-        setError(error);
+        setError(error.toString());
         setLoading(false);
       }
     };
 
     fetchUserData();
-  }, []);
+  }, [loggedInUser.id]); 
 
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const formattedDate = date.toLocaleString('en-US', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    });
+    return formattedDate;
+  }
   return (
-
-    <div>
-      {userData && (
-        <div>
-          <h2>{userData.username}</h2>
-          <p>{userData.reviews}</p>
-        </div>
-      )}
+    <div id='allUserReviews'>
+        {userDetails && (
+            <div>
+                <h2>User profile: {userDetails.username}</h2>
+                {reviews.map(review => (
+                    <div key={review.id} className='userReviewList'>
+                        <h3>{review.title}</h3>
+                        <div className='userReview'>Restuarant Rating: {review.rating}</div>
+                        <div className='userReviewBody'>Review: {review.body}</div>
+                        <div className='userReviewCreated'>Submitted on: {formatDate(review.created_at)}</div>
+                    </div>
+                ))}
+            </div>
+        )}
     </div>
   );
 }
