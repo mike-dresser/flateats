@@ -10,7 +10,6 @@ function ReviewForm({ restaurantId, fetchRestaurant, loggedInUser }) {
 
   const [isShown, setIsShown] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  console.log('In restaurant form, the logged in user is', loggedInUser);
 
   const handleReviewSubmit = (e) => {
     e.preventDefault();
@@ -28,7 +27,7 @@ function ReviewForm({ restaurantId, fetchRestaurant, loggedInUser }) {
       user_id: loggedInUser.id,
     };
 
-    fetch(`http://127.0.0.1:5555/reviews`, {
+    fetch(`/api/reviews`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
