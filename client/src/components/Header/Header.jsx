@@ -10,21 +10,25 @@ function Header({ loggedInUser, setLoggedInUser }) {
       <div id="headerLeft">
         <h1>
           <Link to="/">
-            <span>//</span>Flateats
+            <span className="flatironLogo">//</span>Flateats
           </Link>
         </h1>
-        <p>
+        <p className="tagline">
           The <em>only</em> source for reliable lunch recommendations.
         </p>
       </div>
-      {loggedInUser ? (
-        <>
-          <p>Welcome, {loggedInUser.username}!</p>
-          <Logout setLoggedInUser={setLoggedInUser} />
-        </>
-      ) : (
-        <Login setLoggedInUser={setLoggedInUser} />
-      )}
+      <div id="headerRight">
+        {loggedInUser ? (
+          <>
+            <Logout setLoggedInUser={setLoggedInUser} />
+            <p>
+              Welcome, <span class="username">{loggedInUser.username}</span>!
+            </p>
+          </>
+        ) : (
+          <Login setLoggedInUser={setLoggedInUser} />
+        )}
+      </div>
     </div>
   );
 }
