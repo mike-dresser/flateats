@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Signup.css';
-import { useOutletContext, useNavigate } from 'react-router-dom';
+import { useOutletContext, useNavigate, useLocation } from 'react-router-dom';
 
 function Signup() {
   const [username, setUsername] = useState('');
@@ -9,7 +9,6 @@ function Signup() {
   const [error, setError] = useState('');
   const { setLoggedInUser } = useOutletContext();
   const navigate = useNavigate();
-
   async function submitUser(e) {
     e.preventDefault();
     if (validateForm()) {
@@ -42,7 +41,7 @@ function Signup() {
     return true;
   }
   return (
-    <div className="form-container expanded">
+    <div className="form-container ">
       <h2>Join the Flateats family!</h2>
       <form className="form" onSubmit={submitUser}>
         <input
