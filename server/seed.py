@@ -45,8 +45,8 @@ with app.app_context():
             distance_time = "3", 
             price = "2", 
             cuisine = "mexican, fast-food", 
-            pos_lat = "40.7047946", 
-            pos_lon = "-74.0144023",
+            pos_lat = "40.70447570538585", 
+            pos_lon = "-74.01294727454732", 
             image = "https://lh5.googleusercontent.com/p/AF1QipPSvvqVfLwDsE_u4euCapUVyahmT13OlLgpev7M=w408-h306-k-no"
         ),
         Restaurant(
@@ -126,8 +126,8 @@ with app.app_context():
             distance_time = "9", 
             price = "2", 
             cuisine = "chinese, noodles, dumplings", 
-            pos_lat = "40.7075032", 
-            pos_lon = "-74.0141698",
+            pos_lat = "40.709361326705746", 
+            pos_lon = "-74.00928580338314",
             image = "https://lh5.googleusercontent.com/p/AF1QipNKT3WJaNiomzAf2GkJ6UcsTa7_SoOgZUXNMPgy=w408-h307-k-no"
         ),
         Restaurant (
