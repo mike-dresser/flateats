@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import './ReviewForm.css';
+import { Link } from 'react-router-dom';
 
 function ReviewForm({ restaurantId, fetchRestaurant, loggedInUser }) {
-  // const [loggedInUser] = useOutletContext()
-
   const [reviewTitle, setReviewTitle] = useState('');
   const [reviewBody, setReviewBody] = useState('');
   const [reviewRating, setReviewRating] = useState('');
@@ -59,9 +58,15 @@ function ReviewForm({ restaurantId, fetchRestaurant, loggedInUser }) {
 
   return (
     <div className={`form-container ${isShown ? 'expanded' : ''}`}>
-      <button className="show" onClick={handleShow}>
-        Write a review
-      </button>
+      {loggedInUser ? (
+        <button className="show" onClick={handleShow}>
+          Write a review
+        </button>
+      ) : (
+        <Link to="/signup" className="signup-link">
+          Login or Sign Up to Post a Review
+        </Link>
+      )}
       {isShown && (
         <form className="form" onSubmit={handleReviewSubmit}>
           <input
