@@ -1,10 +1,11 @@
 import React from 'react';
 import './Header.css';
 import Login from '../Login';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Logout from '../Logout';
 
 function Header({ loggedInUser, setLoggedInUser }) {
+  const current_path = useLocation();
   return (
     <div id="header">
       <div id="headerLeft">
@@ -22,7 +23,6 @@ function Header({ loggedInUser, setLoggedInUser }) {
           <>
             <Logout setLoggedInUser={setLoggedInUser} />
             <p>
-
               Welcome,{' '}
               <Link to={`/user/${loggedInUser.username}`} className="username">
                 {loggedInUser.username}
@@ -31,7 +31,9 @@ function Header({ loggedInUser, setLoggedInUser }) {
             </p>
           </>
         ) : (
-          <Login setLoggedInUser={setLoggedInUser} />
+          current_path.pathname != '/signup' && (
+            <Login setLoggedInUser={setLoggedInUser} />
+          )
         )}
       </div>
     </div>
