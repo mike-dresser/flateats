@@ -77,3 +77,15 @@
 }
 
 
+.link-style {
+    color: #007bff; 
+    text-decoration: none; 
+  }
+  
+  
+  .link-style:hover {
+    color: #0056b3; 
+  }
+  
+
+

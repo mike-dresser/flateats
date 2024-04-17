@@ -43,7 +43,6 @@ function ReviewForm({ restaurantId, fetchRestaurant, loggedInUser }) {
         setReviewRating(0);
         setIsShown(false);
         setErrorMessage('');
-        data.reverse();
       })
       .catch((error) => {
         console.error('Error:', error);

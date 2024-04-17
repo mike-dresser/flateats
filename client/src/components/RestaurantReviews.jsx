@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'
 import ReviewForm from './ReviewForm';
 
 function RestaurantReviews({ restaurantId }) {
@@ -46,6 +47,9 @@ function RestaurantReviews({ restaurantId }) {
         <div key={review.id} className='reviewEntry'>
           <h3>{review.title}</h3>
           <div className="reviewerName">{review.user.username}</div>
+            {/* <Link to={`/user/${review.user.username}`} className="link-style">
+                {review.user.username}
+            </Link> */}
           <div className="reviewText">Rating: {review.rating}</div>
           <div className="reviewText">{review.body}</div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useOutletContext } from 'react-router-dom';
+import { useOutletContext, Link } from 'react-router-dom';
 
 function UserProfile() {
   const { loggedInUser } = useOutletContext();
@@ -12,7 +12,7 @@ function UserProfile() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:5555/users/${loggedInUser.id}`);
+        const response = await fetch(`http://127.0.0.1:5555/user/${loggedInUser.username}`);
         if (!response.ok) {
           throw new Error('No Network Response');
         }
@@ -27,7 +27,7 @@ function UserProfile() {
     };
 
     fetchUserData();
-  }, [loggedInUser.id]); 
+  }, [loggedInUser]); 
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -48,9 +48,13 @@ function UserProfile() {
                 <h2>User profile: {userDetails.username}</h2>
                 {reviews.map(review => (
                     <div key={review.id} className='reviewEntry'>
-                        <h3>{review.restaurant.name}</h3>
-                        <div>{review.title}</div>
-                        <div className='reviewText'>Restuarant Rating: {review.rating}</div>
+                        <h3>
+                        <Link to={`/restaurants/${review.restaurant.id}`} className="link-style">
+                            {review.restaurant.name}
+                        </Link>
+                        </h3>
+                        <div className='reviewText'>Restaurant Rating: {review.rating}</div>
+                        <div className='reviewText'>{review.title}</div>
                         <div className='reviewText'>Review: {review.body}</div>
                         <div className='userReviewCreated'>Submitted on: {formatDate(review.created_at)}</div>
                     </div>
