@@ -40,7 +40,11 @@ function App() {
     <>
       <Header loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
       <Outlet
-        context={{ restaurants: restaurants, loggedInUser: loggedInUser }}
+        context={{
+          restaurants: restaurants,
+          loggedInUser: loggedInUser,
+          setLoggedInUser: setLoggedInUser,
+        }}
       />
     </>
   );

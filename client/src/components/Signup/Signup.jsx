@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './Signup.css';
+import { useOutletContext, useNavigate } from 'react-router-dom';
 
 function Signup() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const [error, setError] = useState('');
+  const { setLoggedInUser } = useOutletContext();
+  const navigate = useNavigate();
 
   async function submitUser(e) {
     e.preventDefault();
@@ -22,7 +25,13 @@ function Signup() {
         credentials: 'include',
         body: JSON.stringify(newUser),
       });
-      if (response.ok) console.log(response);
+      const response_data = await response.json();
+      if (!response.ok) {
+        setError(response_data['error']);
+      } else {
+        setLoggedInUser(response_data);
+        navigate('/');
+      }
     }
   }
   function validateForm() {
