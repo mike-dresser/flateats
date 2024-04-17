@@ -45,7 +45,7 @@ def restaurants_by_id(id):
     if request.method == 'GET':
         return rest_id.to_dict(), 200
 
-@app.route('/users', methods=['GET'])
+@app.route('/users', methods=['GET', 'POST'])
 def get_users_users():
     if request.method == 'GET':
         users_obj = User.query.all()
@@ -55,6 +55,19 @@ def get_users_users():
             users_dict.append(user.to_dict())
 
         return users_dict, 200
+    
+    if request.method == 'POST':
+        json_data = request.get_json()
+
+        new_user = User(
+            username=json_data.get('username'),
+            password=json_data.get('password')
+        )
+
+        db.session.add(new_user)
+        db.session.commit()
+
+        return new_review.to_dict(), 201
 
 @app.route('/users/<int:id>', methods=['GET'])
 def get_users_by_id(id):
