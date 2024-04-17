@@ -5,8 +5,9 @@ import App from './components/App';
 import Home from './components/Home.jsx';
 import RestaurantList from './components/RestaurantList';
 import RestaurantPage from './components/RestaurantPage';
+import Signup from './components/Signup/Signup.jsx';
 
-import { restaurantListLoader, restaurantLoader } from './loaders.js';
+import { restaurantListLoader } from './loaders.js';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: '/restaurants/:id',
         element: <RestaurantPage />,
+      },
+      {
+        path: '/signup',
+        element: <Signup />,
       },
     ],
   },
