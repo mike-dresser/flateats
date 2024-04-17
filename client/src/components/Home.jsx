@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import RestaurantList from './RestaurantList';
 import RestaurantMap from './RestaurantMap';
+import About from './About';
 import { useOutletContext } from 'react-router-dom';
 
 function Home() {
@@ -11,12 +12,15 @@ function Home() {
   });
   return (
     <div id="main">
-      <RestaurantList
-        restaurants={filteredPost}
-        search={search}
-        setSearch={setSearch}
-      />
-      <RestaurantMap restaurants={filteredPost}/>
+      <div className="list-map-container">
+        <RestaurantList
+          restaurants={filteredPost}
+          search={search}
+          setSearch={setSearch}
+        />
+        <RestaurantMap restaurants={filteredPost}/>
+      </div>
+      <About />
     </div>
   );
 }
