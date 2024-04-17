@@ -12,7 +12,7 @@ function UserProfile() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:5555/users/${loggedInUser.id}`);
+        const response = await fetch(`http://127.0.0.1:5555/user/${loggedInUser.username}`);
         if (!response.ok) {
           throw new Error('No Network Response');
         }
@@ -25,9 +25,9 @@ function UserProfile() {
         setLoading(false);
       }
     };
-    console.log(loggedInUser.id)
+
     fetchUserData();
-  }, [loggedInUser.id]); 
+  }, [loggedInUser]); 
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
