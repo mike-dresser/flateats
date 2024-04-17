@@ -1,8 +1,9 @@
 #header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
   flex-direction: row;
+  padding: 0em 1em;
 }
 
 #header form {
@@ -11,11 +12,9 @@
 }
 #header h1 {
   font-size: 3.5em;
-  /* position: relative; */
-  margin: 0.15em 0.25em;
 }
 
-#header span {
+span.flatironLogo {
   color: lightblue;
   font-size: 1.1em;
   font-weight: bold;
@@ -23,7 +22,18 @@
   bottom: 0.15em;
 }
 
-#header p {
-  font-size: 1.25em;
+span.username {
+  font-weight: bold;
+  color: darkslategray;
 }
 
+div#headerRight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+p.tagline {
+  font-size: 1.25em;
+}
