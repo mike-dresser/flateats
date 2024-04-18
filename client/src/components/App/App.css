@@ -30,6 +30,8 @@ body {
   width: 50vw;
   border-radius: 3px;
   overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Add a shadow for a 3D effect */
 }
 /* Flatiron School pin logo styling */
 .GMAMP-maps-pin-view {
@@ -51,4 +53,9 @@ body {
 .card:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+#mapContainer:hover {
+  transform: scale(1.02); /* Slightly increase the size when hovering */
+  border: 2px solid #FF6347; /* Change the border color when hovering */
 }
