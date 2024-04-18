@@ -45,8 +45,8 @@ with app.app_context():
             distance_time = "3", 
             price = "2", 
             cuisine = "mexican, fast-food", 
-            pos_lat = "40.70447570538585", 
-            pos_lon = "-74.01294727454732", 
+            pos_lat = "40.704473586476816",  
+            pos_lon = "-74.0114431700936", 
             image = "https://lh5.googleusercontent.com/p/AF1QipPSvvqVfLwDsE_u4euCapUVyahmT13OlLgpev7M=w408-h306-k-no"
         ),
         Restaurant(
@@ -54,9 +54,9 @@ with app.app_context():
             distance_time = "1", 
             price = "2", 
             cuisine = "american, sandwiches", 
-            pos_lat = "40.7051201", 
-            pos_lon = "-74.0144287",
-            image = "https://lh5.googleusercontent.com/p/AF1QipPLzmsudzLMGAZRMR2ep_r8ONme5G1lPAfSWUaV=w408-h725-k-no"
+            pos_lat = "40.70512978429106",
+            pos_lon = "-74.01401019256951",
+            image = "https://s3-media0.fl.yelpcdn.com/bphoto/_qE5URApwkAxCMc3Zh3Wog/o.jpg"
         ),
         Restaurant(
             name = "Liberty Bagels", 
@@ -90,8 +90,8 @@ with app.app_context():
             distance_time = "13", 
             price = "2", 
             cuisine = "italian, panini", 
-            pos_lat = "40.7079249", 
-            pos_lon = "-74.0132937",
+            pos_lat = "40.71056534847201", 
+            pos_lon = "-74.00757763092011",
             image = "https://lh3.googleusercontent.com/p/AF1QipMm63jOB-QIJkSgzp9W_mjTyZo6_5pvk8COAyPU=s680-w680-h510"
         ),      
         Restaurant (
@@ -99,8 +99,8 @@ with app.app_context():
             distance_time = "8", 
             price = "2", 
             cuisine = "sandwiches, subs", 
-            pos_lat = "40.7063636", 
-            pos_lon = "-74.015617",
+            pos_lat = "40.7063736640506", 
+            pos_lon = "-74.01556202831622",
             image = "https://lh3.googleusercontent.com/p/AF1QipOl1NHQtX1UThOp0RUNSurBrzWlaaFdyiBTWGEx=s680-w680-h510"
         ),
         Restaurant (
@@ -108,8 +108,8 @@ with app.app_context():
             distance_time = "6", 
             price = "2", 
             cuisine = "mediterannean, bowl", 
-            pos_lat = "40.7059467", 
-            pos_lon = "-74.0146192",
+            pos_lat = "40.702163199580966",  
+            pos_lon = "-74.01244323102348",
             image = "https://lh5.googleusercontent.com/p/AF1QipOLXJEHO1blqtJhn_RBrGhOHh89aAdZtQ6YHrd4=w408-h306-k-no"
         ),
         Restaurant (
@@ -117,8 +117,8 @@ with app.app_context():
             distance_time = "8", 
             price = "2", 
             cuisine = "mediterannean, bowl", 
-            pos_lat = "40.7061888", 
-            pos_lon = "-74.0128002",
+            pos_lat = "40.70567288734936",  
+            pos_lon = "-74.00878475947465",
             image = "https://lh5.googleusercontent.com/p/AF1QipPWdQdHCwG0mYDk5QmhHxanl-pOgS4ujL8t8Ekf=w408-h306-k-no"
         ),
         Restaurant (
@@ -135,8 +135,8 @@ with app.app_context():
             distance_time = "10", 
             price = "2", 
             cuisine = "american, kids", 
-            pos_lat = "40.7076008", 
-            pos_lon = "-74.0140323",
+            pos_lat = "40.70933785656674",
+            pos_lon = "-74.00899654336463",
             image = "https://lh5.googleusercontent.com/p/AF1QipPlX34to5xzsa78wxXOIR8UAmkFF_H9vR66aLAS=w408-h272-k-no"
         ),
         Restaurant (
@@ -144,8 +144,8 @@ with app.app_context():
             distance_time = "6", 
             price = "2", 
             cuisine = "pizza, italian", 
-            pos_lat = "40.7081484", 
-            pos_lon = "-74.0151853",
+            pos_lat = "40.70815419543548", 
+            pos_lon = "-74.01386355275092",
             image = "https://lh5.googleusercontent.com/p/AF1QipMlREwwTBzsPdvB0I1Y0S6fpWXyoerPYDqhzAul=w408-h544-k-no"
         ),
         Restaurant (
@@ -153,8 +153,8 @@ with app.app_context():
             distance_time = "7", 
             price = "2", 
             cuisine = "middle eastern, vegetarian", 
-            pos_lat = "40.7071355", 
-            pos_lon = "-74.0150023",
+            pos_lat = "40.70897964609884", 
+            pos_lon = "-74.01130953402186",
             image = "https://lh5.googleusercontent.com/p/AF1QipOfdu0JwT0Sqo4AIbTAhpCaSrFlDHxswS7Aeac=w408-h544-k-no"
         ),
         Restaurant (
@@ -162,8 +162,8 @@ with app.app_context():
             distance_time = "4", 
             price = "2", 
             cuisine = "italian, sausage", 
-            pos_lat = "40.7043883", 
-            pos_lon = "-74.0161481",
+            pos_lat = "40.70347757303552", 
+            pos_lon = "-74.01283955642299",
             image = "https://lh5.googleusercontent.com/p/AF1QipNm3NAp4W5kEYoiv0iio2bAyvVCWe4pgRYz5uQI=w408-h306-k-no"
         ),
         Restaurant (
@@ -171,8 +171,8 @@ with app.app_context():
             distance_time = "11", 
             price = "2", 
             cuisine = "american homophobic, sandwich", 
-            pos_lat = "40.7083736", 
-            pos_lon = "-74.0137637",
+            pos_lat = "40.710418996064064", 
+            pos_lon = "-74.00849747787453",
             image = "https://lh3.googleusercontent.com/p/AF1QipMbPwWh8pqi58DX5HtZgBpHmZVL4mZIth51x97q=s680-w680-h510"
         ),
         Restaurant (
@@ -180,8 +180,8 @@ with app.app_context():
             distance_time = "11", 
             price = "2", 
             cuisine = "american, bowls", 
-            pos_lat = "40.706854", 
-            pos_lon = "-74.0119892",
+            pos_lat = "40.70639485471601",
+            pos_lon = "-74.00775081081066",
             image = "https://lh5.googleusercontent.com/p/AF1QipNvPuqH251_Vufr0qyzx2r92FMbi29mGXMhlocB=w408-h510-k-no"
         ),
         Restaurant (
@@ -189,9 +189,108 @@ with app.app_context():
             distance_time = "8", 
             price = "3", 
             cuisine = "misc", 
-            pos_lat = "40.7041898", 
-            pos_lon = "-74.0132746",
+            pos_lat = "40.70376205487834", 
+            pos_lon = "-74.00978426899219",
             image = "https://lh5.googleusercontent.com/p/AF1QipNhtziTFTik7xO5w9jX42EBds8H0lFnSRapn6A=w408-h272-k-no"
+        ),
+        Restaurant (
+            name = "Poke Bowl", 
+            distance_time = "5", 
+            price = "2", 
+            cuisine = "hawaiian, bowl, sushi", 
+            pos_lat = "40.70434635102397", 
+            pos_lon = "-74.01176195670669",
+            image = "https://lh5.googleusercontent.com/p/AF1QipM4dB5PVPYVFBckqMgAnbHPORg_JYOxHAIpQ0x_=w141-h235-n-k-no-nu"
+        ),
+        Restaurant (
+            name = "Yip's Restaurant", 
+            distance_time = "4", 
+            price = "2", 
+            cuisine = "chinese, buffet", 
+            pos_lat = "40.704804080131176",  
+            pos_lon = "-74.01236656179526",
+            image = "https://lh3.googleusercontent.com/p/AF1QipNvFs2NejSlUAYDqtXc-jOf5ktmyogDSnLn0Jc=s1360-w1360-h1020"
+        ),
+        Restaurant (
+            name = "Tacos Casamigos", 
+            distance_time = "6", 
+            price = "2", 
+            cuisine = "mexican, tacos, tortas, burritos", 
+            pos_lat = "40.70361373930907",  
+            pos_lon = "-74.01141065096331",
+            image = "https://lh3.googleusercontent.com/p/AF1QipMyMy-H4UndVhLkhDk1aNB-D_rchl5P2Z6YMFso=s1360-w1360-h1020"
+        ),
+        Restaurant (
+            name = "Justino's Pizzeria", 
+            distance_time = "7", 
+            price = "1", 
+            cuisine = "italian, pizza, hot heroes",  
+            pos_lat = "40.70403097373455", 
+            pos_lon = "-74.0104431548396",
+            image = "https://lh3.googleusercontent.com/p/AF1QipMWjEM7RWaxdbKrXqcnK14aB5R5wRNQ8A7Fr6_X=s1360-w1360-h1020"
+        ),
+        Restaurant (
+            name = "77 Burgers", 
+            distance_time = "7", 
+            price = "2", 
+            cuisine = "burgers, wings, american", 
+            pos_lat = "40.70412603285655", 
+            pos_lon = "-74.0105505367513",
+            image = "https://lh5.googleusercontent.com/p/AF1QipMcpE3ePSavyfW_iQGXSyz9Wftl1X09PpQGuZ7J=w408-h306-k-no"
+        ),
+        Restaurant (
+            name = "Just Salad", 
+            distance_time = "4", 
+            price = "2", 
+            cuisine = "salad, american, vegetarian, rabbit food", 
+            pos_lat = "40.70682208202978",  
+            pos_lon = "-74.01307567509569",
+            image = "https://lh3.googleusercontent.com/p/AF1QipOeW0IjcXzsr9FGTkexJyGA-vweVzHrT6ec9dEL=s1360-w1360-h1020"
+        ),
+        Restaurant (
+            name = "Luke's Lobster", 
+            distance_time = "6", 
+            price = "3", 
+            cuisine = "lobster, seafood, roll, american", 
+            pos_lat = "40.70461592938255", 
+            pos_lon = "-74.01066193840417",
+            image = "https://lh3.googleusercontent.com/p/AF1QipPjzgspT0Rgd23rQhYHCIzhWxf5P-8ZMsX8CbY2=s1360-w1360-h1020"
+        ),
+        Restaurant (
+            name = "Delmonico's", 
+            distance_time = "6", 
+            price = "5", 
+            cuisine = "steak, american", 
+            pos_lat = "40.70503743334521",  
+            pos_lon = "-74.01021883506736",
+            image = "https://lh3.googleusercontent.com/p/AF1QipNJTdOD6uk0pETkM7RXVZenCEBCqGUkjZ0qqGrZ=s1360-w1360-h1020"
+        ),
+        Restaurant (
+            name = "Tacombi", 
+            distance_time = "5", 
+            price = "2", 
+            cuisine = "", 
+            pos_lat = "40.70469432812411",  
+            pos_lon = "-74.0116417382986",
+            image = "https://lh5.googleusercontent.com/p/AF1QipM2W7YeHEyha8PZ4QRp_clwpiBqWJIhhUP2Xb3Y=w408-h544-k-no"
+        ),
+        Restaurant (
+            name = "Nara Sushi", 
+            distance_time = "7", 
+            price = "2", 
+            cuisine = "sushi, japanese", 
+            pos_lat = "40.70377690379922",  
+            pos_lon = "-74.01035509416248",
+            image = "https://lh3.googleusercontent.com/p/AF1QipODBjmCt-Oqp3mn_bAAaIu8TgsXBxjuZYQIubr-=s1360-w1360-h1020"
+        ),
+        Restaurant (
+            name = "Indian King Biryani House", 
+            distance_time = "10", 
+            price = "2", 
+            cuisine = "indian, rice", 
+            pos_lat = "40.709181842830354", 
+            pos_lon = "-74.01032120971223",
+            image = "https://lh3.googleusercontent.com/p/AF1QipOOZNiGddFTF_I6DhFoimpGpy3uIYfUuKzFu5Re=s1360-w1360-h1020"
         )
         # Restaurant (
         #     name = "", 
