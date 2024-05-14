@@ -21,7 +21,7 @@ Tired of relying on word of mouth to discover the lunchtime hot spots around The
 
 This is a project under development, but feel free to clone a copy and have a look around!
 
-_Note that you will need a [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key) to run a local copy. This requires a Google Cloud account with payment information, but at the time of writing the included monthly account credit should cover development without accruing charges._
+>_Note that you will need a [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key) to run a local copy. This requires a Google Cloud account with payment information, but at the time of writing the included monthly account credit should cover development without accruing charges._
 
 After securing the API key, create a file named `.env` withing the `client/` directory, and add your key as follows.
 
