@@ -46,13 +46,13 @@ flask db migrate
 flask db upgrade
 ```
 
-Finally, to seed the newly created database with our test data, run:
+Finally, seed the newly created database with our test data:
 
 ```
 python seed.py
 ```
 
-Then to start the API, run:
+Then start the API:
 
 ```
 python app.py
@@ -64,3 +64,5 @@ The front-end setup is a bit more straightforward. In the `client/` directory ex
 npm install
 npm run dev
 ```
+
+Open the site by following the URL in your terminal.
